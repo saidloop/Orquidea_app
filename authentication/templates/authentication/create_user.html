@@ -1,0 +1,226 @@
+{% extends 'base/base.html' %} {% load static %}
+
+
+        {% block content_nav %}
+        {% include 'components/nav.html'%}
+        {% endblock content_nav %}
+
+        {% block content_sidebar %}
+        {% include 'components/sidebar.html'%}
+        {% endblock content_sidebar %}
+
+
+        {% block content_body %}
+
+        <div class="page-body">
+
+                <div class="container-fluid">
+                        <div class="page-title">
+                                <div class="row">
+                                        <div class="col-6">
+                                                <h3>Crear Usuario</h3>
+                                        </div>
+                                        <div class="col-6">
+                                                <ol class="breadcrumb">
+                                                        <li class="breadcrumb-item">
+                                                                <a href="index.html"> <i data-feather="home"></i></a>
+                                                        </li>
+                                                        <li class="breadcrumb-item">Usuarios</li>
+                                                        <li class="breadcrumb-item active">Crear usuario</li>
+                                                </ol>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+
+                <!-- Container-fluid starts-->
+                <div class="container-fluid">
+                        <div class="row">
+                                <div class="col-sm-12">
+                                        <div class="card">
+                                                <div class="card-header pb-0">
+                                                        <h3>Formulario de Inscripcion de Usuario</h3>
+                                                </div>
+                                                <div class="card-body">
+
+                                                        <form class="f1" id="createUser" method="POST">
+                                                                {% csrf_token %}
+                                                                
+                                                                <div class="f1-steps">
+                                                                        <div class="f1-progress">
+                                                                                <div class="f1-progress-line"
+                                                                                        data-now-value="16.66"
+                                                                                        data-number-of-steps="3"></div>
+                                                                        </div>
+                                                                        <div class="f1-step active">
+                                                                                <div class="f1-step-icon">
+                                                                                        <i class="fa-solid fa-user"></i>
+                                                                                </div>
+                                                                                <p>Datos Usuario</p>
+                                                                        </div>
+                                                                        <div class="f1-step">
+                                                                                <div class="f1-step-icon"><i
+                                                                                                class="fa fa-phone"></i>
+                                                                                </div>
+                                                                                <p>Datos contacto</p>
+                                                                        </div>
+                                                                        <div class="f1-step">
+                                                                                <div class="f1-step-icon"><i
+                                                                                                class="fa fa-key"></i>
+                                                                                </div>
+                                                                                <p>Datos cuenta</p>
+                                                                        </div>
+                                                                </div>
+                                                                <fieldset>
+                                                                        <div class="mb-2">
+                                                                                <label
+                                                                                        for="name">Nombres</label>
+                                                                                <input class="form-control"
+                                                                                        id="name" type="text"
+                                                                                        name="name"
+                                                                                        placeholder="Peter"/>
+                                                                        </div>
+                                                                        <div class="mb-2">
+                                                                                <label
+                                                                                        for="lastname">Apellidos</label>
+                                                                                <input class="form-control"
+                                                                                        type="text"
+                                                                                        name="lastname"
+                                                                                        placeholder="Parker Benjamin"
+                                                                                        />
+                                                                        </div>
+                                                                        <div class="mb-2">
+                                                                                <label for="identification">Numero de
+                                                                                        Documento</label>
+                                                                                <input class=" form-control"
+                                                                                        type="text"
+                                                                                        name="dni"
+                                                                                        placeholder="123456789" />
+                                                                        </div>
+                                                                        <div class="mb-2">
+                                                                                <label for="Birthday">Fecha de
+                                                                                        Nacimiento</label>
+                                                                                <input class="form-control"
+                                                                                         type="date"
+                                                                                        name="birthday"
+                                                                                        />
+                                                                        </div>
+                                                                        <div class="f1-buttons">
+                                                                                <button class="btn btn-primary btn-next"
+                                                                                        type="button">
+                                                                                        Siguiente
+                                                                                </button>
+                                                                        </div>
+                                                                </fieldset>
+                                                                <fieldset>
+                                                                        <div class="mb-2">
+                                                                                <label for="adress">Direccion</label>
+                                                                                <input class="form-control"
+                                                                                         type="text"
+                                                                                        name="adress"
+                                                                                        placeholder="Calle 34 # 12 - 45"
+                                                                                        />
+                                                                        </div>
+                                                                        <div class="mb-2">
+                                                                                <label
+                                                                                        for="phone">Telefono</label>
+                                                                                <input class="form-control"
+                                                                                         type="telefono"
+                                                                                        name="phone"
+                                                                                        placeholder="3131234567"
+                                                                                        />
+                                                                        </div>
+                                                                        <div class="mb-2">
+                                                                                <label for="phone2">Telefono
+                                                                                        </label>
+                                                                                <input class="form-control"
+                                                                                        
+                                                                                        type="text"
+                                                                                        name="phone2"
+                                                                                        placeholder="3131234567" />
+                                                                        </div>
+                                                                        <div class="f1-buttons">
+                                                                                <button class="btn btn-primary btn-previous"
+                                                                                        type="button">
+                                                                                        Atras
+                                                                                </button>
+                                                                                <button class="btn btn-primary btn-next"
+                                                                                        type="button">
+                                                                                        Siguiente
+                                                                                </button>
+                                                                        </div>
+                                                                </fieldset>
+                                                                <fieldset>
+                                                                        <div class="mb-2">
+                                                                                <label for="username">Nombre de
+                                                                                        Usuario</label>
+                                                                                <input class="form-control"
+                                                                                        type="text"
+                                                                                        name="username"
+                                                                                        placeholder="Peter Parker"
+                                                                                        />
+                                                                        </div>
+                                                                        <div class="mb-2">
+                                                                                <label for="email">Email</label>
+                                                                                <input class="email form-control"
+                                                                                        type="text"
+                                                                                        name="email"
+                                                                                        placeholder="peterparker@email.com"
+                                                                                        />
+                                                                        </div>
+                                                                        <div class="mb-2">
+                                                                                <label
+                                                                                        for="password">Password</label>
+                                                                                <input class="form-control"
+                                                                                        type="password"
+                                                                                        name="password1"
+                                                                                        placeholder="****************"
+                                                                                         />
+                                                                        </div>
+                                                                        <div class="mb-2">
+                                                                                <label for="repeat_password">Confirm
+                                                                                        Password</label>
+                                                                                <input class="form-control"
+                                                                                        type="password"
+                                                                                        name="password2"
+                                                                                        placeholder="****************"
+                                                                                        />
+                                                                        </div>
+
+                                                                        <div class="mb-2">
+                                                                                <label for="f1-last-name">Rol</label>
+                                                                                <select name="rol"
+                                                                                        class="form-control digits">
+                                                                                        
+                                                                                        {% for rol in roles %}
+                                                                                        <option value="{{ rol}}">{{ rol }}</option>
+                                                                                        {% endfor %}
+                                                                                </select> 
+                                                                        </div>
+
+                                                                        <div class="f1-buttons">
+                                                                                <button class="btn btn-primary btn-previous"
+                                                                                        type="button">
+                                                                                        Atras
+                                                                                </button>
+                                                                                <button class="btn btn-primary btn-submit"
+                                                                                        type="submit">
+                                                                                        Enviar
+                                                                                </button>
+                                                                        </div>
+                                                                </fieldset>
+                                                        </form>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <!-- Container-fluid Ends-->
+        </div>
+
+        {% include 'components/footer.html' %}
+
+        <script src="{% static 'assets/js/form-wizard/form-wizard-three.js' %}"></script>
+        <script src="{% static 'assets/js/form-wizard/jquery.backstretch.min.js' %}"></script>
+
+        {% endblock content_body %}
