@@ -1,28 +1,28 @@
 from django.shortcuts import render
-
 from django.views.generic import View
 from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView
-
+from django.contrib.auth.views import LogoutView
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
-
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .models import Profile, Role
 from .forms import UserForm, ProfileForm
 # Create your views here.
 
 
-class RegisterUserView (CreateView):
+class RegisterUserView (LoginRequiredMixin, CreateView):
     model = Profile
     form_class = ProfileForm
     secomd_form_class = UserForm
     template_name = 'authentication/create_user.html'
     success_url = '/'
 
-    login_url = '/login/'
+    login_url = reverse_lazy('authentication:login')
     redirect_field_name = 'redirect_to'
 
     def form_valid(self, form):
@@ -53,6 +53,7 @@ class RegisterUserView (CreateView):
 
 class LoginUserView(LoginView):
     template_name = 'authentication/login.html'
+    success_url = reverse_lazy('dashboard:index')
 
     def form_invalid(self, form):
         messages.error(
@@ -60,4 +61,6 @@ class LoginUserView(LoginView):
         response = super().form_invalid(form)
         return response
     
+class LogoutUserView(LogoutView):
+    next_page = reverse_lazy('authentication:login')
 
