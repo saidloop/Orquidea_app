@@ -4,98 +4,73 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="{% static 'assets/images/favicon/favicon.png' %}">
-  <link rel="shortcut icon" href="{% static 'assets/images/favicon/favicon.png' %}">
-  <link rel="shortcut icon" href="{% static 'assets/images/favicon/favicon.png' %}">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Orquidea</title>
-  <!-- Google font-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  
-  <link
-    href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
-    rel="stylesheet">
-  <!-- Font Awesome-->
-  <script src="https://kit.fontawesome.com/0e2468633d.js" crossorigin="anonymous"></script>
-  <!-- ico-font-->
-  <link rel="stylesheet" href="{% static 'assets/css/vendors/icofont.css' %}">
-  <!-- Flag icon-->
-  <link rel="stylesheet" href="{% static 'assets/css/vendors/flag-icon.css' %}">
-  <!-- Feather icon-->
-  <link rel="stylesheet" href="{% static 'assets/css/vendors/feather-icon.css' %}">
-  <!-- Bootstrap css-->
-  <link rel="stylesheet" href="{% static 'assets/css/vendors/bootstrap.css' %}">
-  <!-- App css-->
+    <!--fontawesome-->
+  <script src="https://kit.fontawesome.com/53278d641e.js" crossorigin="anonymous"></script>
+  <!--fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/plugin.min.css' %}">
   <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-  <link id="color" rel="stylesheet" href="{% static 'assets/css/color-1.css' %}" media="screen">
-  <!-- Responsive css-->
-  <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
-  {% block extra_css %}
-  {% endblock extra_css %}
-
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
 </head>
+{% block content_body_login %}
+{% endblock content_body_login %}
+<body class="layout-light side-menu">
 
-<body>
-  <!-- tap on top starts-->
-  <div class="tap-top"><i data-feather="chevrons-up"></i></div>
-  <!-- tap on tap ends-->
-  <!-- Loader starts-->
-  <div class="loader-wrapper">
-    <div class="loader"></div>
-  </div>
-  <!-- Loader ends-->
-  <div class="page-wrapper compact-wrapper" id="pageWrapper">
+  {% block content_nav %}
+  {% endblock content_nav %}
 
-    {% block content_nav %}
-    {% endblock content_nav %}
+  <main class="main-content">  
 
     {% block content_sidebar%}
     {% endblock content_sidebar %}
 
-        <!-- alertas -->
-        <script src="{% static 'assets/js/sweet-alert/notification.js' %}"></script>
-   
-
-        <!-- sweet alert2 -->
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-    
-        <!-- alertas -->
-        <div>
-            {% for message in messages %}
-            <script>
-                showAlert("{{ message }}", "{{ message.tags }}");
-            </script>
-            {% endfor %}
-        </div>
-
     {% block content_body %}
     {% endblock content_body %}
 
+    <!-- alertas -->
+    <script src="{% static 'assets/js/sweet-alert/notification.js' %}"></script>
+
+
+    <!-- sweet alert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <!-- alertas -->
+    <div>
+      {% for message in messages %}
+      <script>
+        showAlert("{{ message }}", "{{ message.tags }}");
+      </script>
+      {% endfor %}
+    </div>
+
+
+
+    <div id="overlayer">
+      <div class="loader-overlay">
+        <div class="dm-spin-dots spin-lg">
+          <span class="spin-dot badge-dot dot-primary"></span>
+          <span class="spin-dot badge-dot dot-primary"></span>
+          <span class="spin-dot badge-dot dot-primary"></span>
+          <span class="spin-dot badge-dot dot-primary"></span>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <!-- latest jquery-->
 
-      <!-- Page Header Ends-->      
-      <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
-      <script src="{% static 'assets/js/bootstrap/popper.min.js' %}"></script>
-      <script src="{% static 'assets/js/bootstrap/bootstrap.bundle.min.js' %}"></script>
-      <!-- feather icon js-->
-      <script src="{% static 'assets/js/icons/feather-icon/feather.min.js' %}"></script>
-      <script src="{% static 'assets/js/icons/feather-icon/feather-icon.js' %}"></script>
-      <script src="{% static 'assets/js/scrollbar/simplebar.js' %}"></script>
-      <script src="{% static 'assets/js/scrollbar/custom.js' %}"></script>
-      <!-- Theme js-->
-      <script src="{% static 'assets/js/script.js' %}"></script>
+  <script src="{% static 'assets/js/plugins.min.js' %}"></script>
+  <script src="{% static 'assets/js/script.min.js' %}"></script>
 
+
+{% block extrajs %}
+
+{% endblock extrajs %}
 </body>
 
 </html>

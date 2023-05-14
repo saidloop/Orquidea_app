@@ -1,41 +1,79 @@
-{% extends 'base/base.html' %} 
+{% extends 'base/base_head.html' %}
 {% load static %}
 
-{% block content_body %}
+{% block content_body_login %}
 
-    <!-- login page start-->
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col-xl-7"><img class="bg-img-cover bg-center" src="{% static 'assets/images/login/2.jpg' %}" alt="bg2"></div>
-          <div class="col-xl-5 p-0">
-            <div class="login-card">
-              <div>
-                <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="{% static 'assets/images/logo/logo.png' %}" alt="logo Image"></a></div>
-                <div class="login-main"> 
-                  <form class="theme-form" id="login" method="POST">
+<body>
+  <main class="main-content">
+    <div class="admin">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-xxl-3 col-xl-4 col-md-6 col-sm-8">
+            <div class="edit-profile">
+              <div class="card border-0">
+                <div class="card-header">
+                  <div class="edit-profile__title">
+                    <h6>Sign in </h6>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form id="login-form" method="POST" class="needs-validation" novalidate>
                     {% csrf_token %}
-                    <h2 class="text-center">Sign in to account</h2>
-                    <p class="text-center">Enter your email & password to login</p>
-                    <div class="form-group">
-                      <label class="col-form-label">Email Address</label>
-                      <input class="form-control" type="text" name="username"  required="" placeholder="Test@gmail.com">
-                    </div>
-                    <div class="form-group">
-                      <label class="col-form-label">Password</label>
-                      <div class="form-input position-relative">
-                        <input class="form-control" type="password" id="password" name="password" required="" placeholder="*********">
-                        <div class="show-hide"><span class="show">                         </span>
+                    <div class="edit-profile__body">
+                      <div class="form-group mb-25">
+                        <label for="username">Username or Email Address</label>
+                        <input type="text" class="form-control" name="username" id="username"
+                          placeholder="name@example.com" required>
+                        <div class="invalid-feedback">
+                          Please enter a valid email address.
                         </div>
                       </div>
-                    </div>
-                    <div class="form-group mb-0">
-                      <div class="checkbox p-0">
-                        <input id="checkbox1" type="checkbox">
-                        <label class="text-muted" for="checkbox1">Remember password</label>
-                      </div><a class="link" href="forget-password.html">Forgot password?</a>
-                      <div class="text-end mt-3">
-                        <button class="btn btn-primary btn-block w-100" type="submit">Sign in</button>
+                      <div class="form-group mb-15">
+                        <label for="password-field">password</label>
+                        <div class="position-relative">
+                          <input id="password-field" type="password" class="form-control" name="password"
+                            placeholder="Password" required>
+                          <div class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password2">
+                          </div>
+                          <div class="invalid-feedback">
+                            Please enter a valid Password.
+                          </div>
+                          
+
+
+                        <div class="card-body">
+                          <div id="alert-login" class="alert alert-danger alert-dismissible fade show"
+                              role="alert"
+                              style="display:none">
+                              <div class="alert-content">
+                                  <p></p>
+                                  <button type="button" class="btn-close text-capitalize"
+                                      data-bs-dismiss="alert" aria-label="Close">
+                                      <img src="{% static 'assets/img/svg/x.svg'%}" alt="x" class="svg" aria-hidden="true">
+                                  </button>
+                              </div>
+                          </div>
                       </div>
+
+                      
+                      <div class="admin-condition">
+                        <div class="checkbox-theme-default custom-checkbox ">
+                          <input class="checkbox" type="checkbox" id="check-1">
+                          <label for="check-1">
+                            <span class="checkbox-text">Keep me logged in</span>
+                          </label>
+                        </div>
+                        <a href="forget-password.html">forget password?</a>
+                      </div>
+                      <div
+                        class="admin__button-group button-group d-flex pt-1 justify-content-md-start justify-content-center">
+                        <button
+                          type="submit"
+                          class="btn btn-primary btn-default w-100 btn-squared text-capitalize lh-normal px-50 signIn-createBtn ">
+                          sign in
+                        </button>
+                      </div>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -43,5 +81,12 @@
           </div>
         </div>
       </div>
-    <!-- login page end-->
-    {% endblock content_body %}
+    </div>
+  </main>
+
+
+  <script src="{% static 'assets/js/login/validation.js' %}"></script>
+  <script src="{% static 'assets/js/login/alerta.js' %}"></script>
+
+</body>
+{% endblock content_body_login %}

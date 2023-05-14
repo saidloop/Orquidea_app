@@ -1,0 +1,173 @@
+{% extends 'base/base.html' %} {% load static %}
+{% block content_nav %}
+{% include 'components/nav.html'%}
+{% endblock content_nav %}
+{% block content_sidebar %}
+{% include 'components/sidebar.html'%}
+{% endblock content_sidebar %}
+
+{% block content_body %}
+<div class="contents">
+    <div class="container-fluid">
+            <div class="row">
+                    <div class="col-lg-12 mb-30">
+                            <div class="card mt-30">
+                                    <div class="card-body">
+                                            <div
+                                                    class="userDatatable adv-table-table global-shadow border-light-0 w-100 adv-table">
+                                                    <div class="table-responsive">
+                                                            <div class="adv-table-table__header">
+                                                                    <h4>Data Table</h4>
+                                                                    <div class="adv-table-table__button">
+                                                                            <div class="card-body">
+                                                                                    <div
+                                                                                            class="d-flex flex-wrap justify-content-sm-start justify-content-center">
+                                                                                            <button type="button"
+                                                                                                onclick="open_modal_register('{% url 'authentication:register' %}')"
+                                                                                                    class="btn btn-primary btn-sm"
+                                                                                                    data-bs-toggle="modal"
+                                                                                                    data-bs-target="#modal-basic">Open
+                                                                                                    Modal</button>
+                                                                                    </div>
+                                                                            </div>
+                                                                    </div>
+                                                            </div>
+                                                         
+
+                                                            <div id="filter-form-container"></div>
+                                                            <table class="table mb-0 table-borderless adv-table"
+                                                                    data-sorting="true"
+                                                                    data-filter-container="#filter-form-container"
+                                                                    data-paging-current="1"
+                                                                    data-paging-position="right"
+                                                                    data-paging-size="10">
+                                                                    <thead>
+                                                                            <tr class="userDatatable-header">
+                                                                                    <th>
+                                                                                            <span
+                                                                                                    class="userDatatable-title">id</span>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                            <span
+                                                                                                    class="userDatatable-title">user</span>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                            <span
+                                                                                                    class="userDatatable-title">emaill</span>
+                                                                                    </th>
+
+                                                                                    <th data-type="html"
+                                                                                            data-name='position'>
+                                                                                            <span
+                                                                                                    class="userDatatable-title">position</span>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                            <span
+                                                                                                    class="userDatatable-title">join
+                                                                                                    date</span>
+                                                                                    </th>
+                                                                                    <th data-type="html"
+                                                                                            data-name='status'>
+                                                                                            <span
+                                                                                                    class="userDatatable-title">status</span>
+                                                                                    </th>
+                                                                                    <th>
+                                                                                            <span
+                                                                                                    class="userDatatable-title float-end">action</span>
+                                                                                    </th>
+                                                                            </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                            {% for profile in profiles %}
+                                                                            <tr>    
+                                                                                    <td>
+                                                                                            <div class="userDatatable-content">{{ profile.user.id }}</div>
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                            <div class="d-flex">
+                                                                                                    <div class="userDatatable-inline-title"></div>
+                                                                                                    <h6>{{ profile.user }}</h6>
+                                                                                            </div>
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                            <div class="userDatatable-content">{{ profile.user.email }}</div>
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                            <div class="userDatatable-content">{{ profile.role }}</div>  
+                                                                                    </td>
+                                                                                    <td>
+                                                                                            <div class="userDatatable-content">{{ profile.user.date_joined }}</div>
+                                                                                            
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                            <div class="userDatatable-content d-inline-block">
+                                                                                                            {% if profile.user.is_active %}
+                                                                                                            <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                                                                                                    
+                                                                                                            {% else %}
+                                                                                                            <span class="bg-opacity-danger  color-danger rounded-pill userDatatable-content-status active">
+                                                                                                                    deactivate
+                                                                                                            </span>
+                                                                                                            {% endif %}
+                                                                                                    </span>
+                                                                                            </div>
+                                                                                            
+                                                                                            <td>
+                                                                                                    <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                                                                                    <li>
+                                                                                                    <a href="dynamic-table.html#" class="view">
+                                                                                                            <i class="fa fa-eye"></i>
+                                                                                                    </a>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                    <a href="dynamic-table.html#" class="edit">
+                                                                                                    <i class=" fa fa-user-pen"></i>
+                                                                                                    </a>
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                    <a href="dynamic-table.html#" class="remove">
+                                                                                                    <i class="fa-solid fa-trash"></i>
+                                                                                                    </a>
+                                                                                                    </li>
+                                                                                                    </ul>
+                                                                                                    </td>
+
+                                                                                    </td>
+                                                                                    
+                                                                            </tr>
+
+                                                                            {% endfor %}
+                                                                    </tbody>
+
+
+                                                            </table>
+                                                    </div>
+                                            </div>
+                                    </div>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</div>
+
+<div class="modal fade show" id="register" role="dialog">
+</div>
+
+{% endblock content_body %}  
+
+{% block extrajs %}
+
+<script>
+        var $ = jQuery.noConflict();
+        function open_modal_register(url){
+                $('#register').load(url, function(){
+                        $(this).modal('show');
+                });
+        }
+</script>
+
+{% endblock extrajs %}

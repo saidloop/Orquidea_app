@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Orquidea</title>
+  <!--fontawesome-->
+  <script src="https://kit.fontawesome.com/53278d641e.js" crossorigin="anonymous"></script>
+  <!--fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/plugin.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
+</head>
+
+<body>
+    
+
+{% block content_body_login %}
+
+{% endblock content_body_login %}
+
+
+
+
+    <div id="overlayer">
+      <div class="loader-overlay">
+        <div class="dm-spin-dots spin-lg">
+          <span class="spin-dot badge-dot dot-primary"></span>
+          <span class="spin-dot badge-dot dot-primary"></span>
+          <span class="spin-dot badge-dot dot-primary"></span>
+          <span class="spin-dot badge-dot dot-primary"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="{% static 'assets/js/plugins.min.js' %}"></script>
+  <script src="{% static 'assets/js/script.min.js' %}"></script>
+
+
+</body>
+
+</html>

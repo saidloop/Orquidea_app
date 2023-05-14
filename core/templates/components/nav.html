@@ -1,59 +1,86 @@
-{% extends 'base/base.html' %}
 {% load static %}
 
 {% block content_nav %}
-    <!-- Page Header Start-->
-    <div class="page-header">
-      <div class="header-wrapper row m-0">
-        <div class="header-logo-wrapper col-auto p-0">
-          <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light"
-                src="{% static 'assets/images/logo/logo.png' %} " alt=""><img class="img-fluid for-dark"
-                src="{% static 'assets/images/logo/logo-dark.png' %}" alt=""></a></div>
-          <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i>
-          </div>
-        </div>
-        <div class="left-header col horizontal-wrapper ps-0">
-          <div class="input-group">
-            <input class="form-control" type="text" placeholder="Search Here........"><span
-              class="input-group-text mobile-search"><i data-feather="search"></i></span>
-          </div>
-        </div>
-        <div class="nav-right col-6 pull-right right-header p-0">
-          <ul class="nav-menus">
-            <li>
-              <div class="mode"><i data-feather="moon"></i></div>
-            </li>
-            <li class="profile-nav onhover-dropdown p-0 me-0">
-              <div class="d-flex profile-media"><img class="b-r-50"
-                  src="{% static 'assets/images/dashboard/profile.png' %}" alt="">
-                <div class="flex-grow-1"><span>Helen Walter</span>
-                  <p class="mb-0 font-roboto">Admin</p>
-                </div>
-              </div>
-              <ul class="profile-dropdown onhover-show-div">
-                <li><a href="user-profile.html"><i data-feather="user"></i><span>Account </span></a></li>
-                <li><a href="email_inbox.html"><i data-feather="mail"></i><span>Inbox</span></a></li>
-                <li><a href="kanban.html"><i data-feather="file-text"></i><span>Taskboard</span></a></li>
-                <li><a href="{% url 'authentication:logout' %}"><i data-feather="log-out"> </i><span>Log out</span></a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <script class="result-template" type="text/x-handlebars-template">
-            <div class="ProfileCard u-cf">                        
-            <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
-            <div class="ProfileCard-details">
-            <div class="ProfileCard-realName">{{name}}</div>
-            </div>
-            </div>
-          </script>
-        <script class="empty-template"
-          type="text/x-handlebars-template"><div class="EmptyMessage">Your search turned up 0 results. This most likely means the backend is down, yikes!</div></script>
+<header class="header-top">
+  <nav class="navbar navbar-light">
+    <div class="navbar-left">
+      <div class="logo-area">
+        <a class="navbar-brand" href="index.html">
+          <img class="dark" src="{% static 'assets/img/logo-dark.png' %}" alt="logo">
+          <img class="light" src="{% static 'assets/img/logo-white.png' %}" alt="logo">
+        </a>
+        <a href="404.html#" class="sidebar-toggle">
+          <img class="svg" src="{% static 'assets/img/svg/align-center-alt.svg' %}" alt="img"></a>
       </div>
     </div>
 
+    <div class="navbar-right">
+      <ul class="navbar-right__menu">
 
 
 
 
+
+        <li class="nav-author">
+          <div class="dropdown-custom">
+            <a href="javascript:;" class="nav-item-toggle"><img src="img/author-nav.jpg" alt="" class="rounded-circle">
+              <span class="nav-item__title">Danial<i class="las la-angle-down nav-item__arrow"></i></span>
+            </a>
+            <div class="dropdown-parent-wrapper">
+              <div class="dropdown-wrapper">
+                <div class="nav-author__info">
+                  <div class="author-img">
+                    <img src="img/author-nav.jpg" alt="" class="rounded-circle">
+                  </div>
+                  <div>
+                    <h6>Rabbi Islam Rony</h6>
+                    <span>UI Designer</span>
+                  </div>
+                </div>
+                <div class="nav-author__options">
+                  <ul>
+                    <li>
+                      <a href="404.html">
+                        <i class="uil uil-user"></i> Profile</a>
+                    </li>
+                    <li>
+                      <a href="404.html">
+                        <i class="uil uil-setting"></i>
+                        Settings</a>
+                    </li>
+                    <li>
+                      <a href="404.html">
+                        <i class="uil uil-key-skeleton"></i> Billing</a>
+                    </li>
+                    <li>
+                      <a href="404.html">
+                        <i class="uil uil-users-alt"></i> Activity</a>
+                    </li>
+                    <li>
+                      <a href="404.html">
+                        <i class="uil uil-bell"></i> Help</a>
+                    </li>
+                  </ul>
+                  <a href="{% url 'authentication:logout' %}" class="nav-author__signout">
+                    <i class="uil uil-sign-out-alt"></i> Sign Out</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+      <div class="navbar-right__mobileAction d-md-none">
+        <a href="404.html#" class="btn-search">
+          <img src="img/svg/search.svg" alt="search" class="svg feather-search">
+          <img src="img/svg/x.svg" alt="x" class="svg feather-x"></a>
+        <a href="404.html#" class="btn-author-action">
+          <img class="svg" src="img/svg/more-vertical.svg" alt="more-vertical"></a>
+      </div>
+    </div>
+
+  </nav>
+</header>
 {% endblock content_nav %}

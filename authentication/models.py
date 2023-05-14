@@ -10,13 +10,13 @@ class Role(models.Model):
     rol_name = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.name
+        return self.rol_name
 
-class Tipe_identification(models.Model):
-    tipe = models.CharField(max_length=50)
+class Identification_type(models.Model):
+    type = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.tipe
+        return self.type
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name=('user'), help_text=('choose user'),
@@ -33,15 +33,15 @@ class Profile(models.Model):
     info_extra = models.TextField(blank=True,
                                   verbose_name=('info extra'), help_text=('info extra'))
 
-    tipe_identification = models.ForeignKey(Tipe_identification, on_delete=models.CASCADE, related_name='profiles')
+    id_type = models.ForeignKey(Identification_type, on_delete=models.CASCADE, related_name='id_type')
 
     identification = models.CharField(max_length=20, blank=True,
                                         verbose_name=('identification'), help_text=('identification'))
                         
-    bithday = models.DateField(blank=True, null=True,
+    birthday = models.DateField(blank=True, null=True,
                                  verbose_name=('bithday'), help_text=('bithday'))
 
-    role = models.ForeignKey(Role, on_delete=models.CASCADE, related_name='profiles')
+    role = models.ForeignKey(Role, on_delete=models.CASCADE, related_name='role')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

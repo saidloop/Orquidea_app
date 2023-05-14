@@ -1,362 +1,830 @@
 {% load static %}
       
 {% block content_sidebar %}
-      <!-- Page Body Start-->
-      <div class="page-body-wrapper">
-        <!-- Page Sidebar Start-->
-        <div class="sidebar-wrapper">
-          <div>
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="{% static 'assets/images/logo/logo.png' %}" alt="">
-              <img class="img-fluid for-dark" src="{% static 'assets/images/logo/logo-dark.png' %}" alt=""></a>
-              <div class="back-btn"><i class="fa fa-angle-left"></i></div>
-              <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-left"> </i></div>
-            </div>
-            <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid for-light" src="{% static 'assets/images/logo/logo-icon.png"' %} alt=""><img class="img-fluid for-dark" src="{% static 'assets/images/logo/logo-icon-dark.png' %}" alt=""></a></div>
-            <nav class="sidebar-main">
-              <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
-              <div id="sidebar-menu">
-                <ul class="sidebar-links" id="simple-bar">
-                  <li class="back-btn"><a href="index.html"><img class="img-fluid for-light" src="{% static 'assets/images/logo/logo-icon.png' %}" alt=""><img class="img-fluid for-dark" src="{% static 'assets/images/logo/logo-icon-dark.png' %}" alt=""></a>
-                    <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
-                  </li>
-                  <li class="sidebar-main-title">  
-                    <div>       
-                      <h4 class="lan-1">General</h4>
-                    </div>
-                  </li>
-                  <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title" href="{% url 'dashboard:index' %}"><i data-feather="home"></i><span class="lan-3">Dashboard</span></a>
-                  </li>
-                  
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="users"></i><span>Asesores</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="{% url 'authentication:register_user' %}">Crear Usuario</a></li>
-                      <li><a href="user-cards.html">Users Cards</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="bookmark.html"><i data-feather="heart"> </i><span>Bookmarks</span></a></li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="contacts.html"><i data-feather="list"> </i><span>Contacts</span></a></li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="task.html"><i data-feather="check-square"> </i><span>Tasks</span></a></li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="calendar-basic.html"><i data-feather="calendar"> </i><span>Calendar</span></a></li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="social-app.html"><i data-feather="zap"> </i><span>Social App</span></a></li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="to-do.html"><i data-feather="clock"> </i><span>To-Do</span></a></li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="search.html"><i data-feather="search"> </i><span>Search Result</span></a></li>
-                  <li class="sidebar-main-title">          
-                    <div>
-                      <h4>Forms & Table             </h4>
-                    </div>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="file-text"></i><span>Forms</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a class="submenu-title" href="javascript:void(0)">Form Controls<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                        <ul class="nav-sub-childmenu submenu-content">
-                          <li><a href="form-validation.html">Form Validation</a></li>
-                          <li><a href="base-input.html">Base Inputs</a></li>
-                          <li><a href="radio-checkbox-control.html">Checkbox & Radio</a></li>
-                          <li><a href="input-group.html">Input Groups</a></li>
-                          <li><a href="megaoptions.html">Mega Options</a></li>
-                        </ul>
-                      </li>
-                      <li><a class="submenu-title" href="javascript:void(0)">Form Widgets<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                        <ul class="nav-sub-childmenu submenu-content">
-                          <li><a href="datepicker.html">Datepicker</a></li>
-                          <li><a href="time-picker.html">Timepicker</a></li>
-                          <li><a href="datetimepicker.html">Datetimepicker</a></li>
-                          <li><a href="daterangepicker.html">Daterangepicker</a></li>
-                          <li><a href="touchspin.html">Touchspin</a></li>
-                          <li><a href="select2.html">Select2</a></li>
-                          <li><a href="switch.html">Switch</a></li>
-                          <li><a href="typeahead.html">Typeahead</a></li>
-                          <li><a href="clipboard.html">Clipboard</a></li>
-                        </ul>
-                      </li>
-                      <li><a class="submenu-title" href="javascript:void(0)">Form layout<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                        <ul class="nav-sub-childmenu submenu-content">
-                          <li><a href="default-form.html">Default Forms</a></li>
-                          <li><a href="form-wizard.html">Form Wizard 1</a></li>
-                          <li><a href="form-wizard-two.html">Form Wizard 2</a></li>
-                          <li><a href="form-wizard-three.html">Form Wizard 3</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="server"></i><span>Tables</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a class="submenu-title" href="javascript:void(0)">Bootstrap Tables<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                        <ul class="nav-sub-childmenu submenu-content">
-                          <li><a href="bootstrap-basic-table.html">Basic Tables</a></li>
-                          <li><a href="table-components.html">Table components</a></li>
-                        </ul>
-                      </li>
-                      <li><a class="submenu-title" href="javascript:void(0)">Data Tables<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                        <ul class="nav-sub-childmenu submenu-content">
-                          <li><a href="datatable-basic-init.html">Basic Tables</a></li>
-                          <li><a href="datatable-API.html">Data API</a></li>
-                          <li><a href="datatable-data-source.html">Data Sources</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="datatable-ext-autofill.html">Ex. Data Tables</a></li>
-                      <li><a href="jsgrid-table.html">Js Grid Table        </a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-main-title"> 
-                    <div>        
-                      <h4>Components</h4>
-                    </div>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="box"></i><span>Ui Kits</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="state-color.html">State color</a></li>
-                      <li><a href="typography.html">Typography</a></li>
-                      <li><a href="avatars.html">Avatars</a></li>
-                      <li><a href="helper-classes.html">Helper classes</a></li>
-                      <li><a href="grid.html">Grid</a></li>
-                      <li><a href="tag-pills.html">Tag & pills</a></li>
-                      <li><a href="progress-bar.html">Progress</a></li>
-                      <li><a href="modal.html">Modal</a></li>
-                      <li><a href="alert.html">Alert</a></li>
-                      <li><a href="popover.html">Popover</a></li>
-                      <li><a href="tooltip.html">Tooltip</a></li>
-                      <li><a href="loader.html">Spinners</a></li>
-                      <li><a href="dropdown.html">Dropdown</a></li>
-                      <li><a href="according.html">Accordion</a></li>
-                      <li><a class="submenu-title" href="javascript:void(0)">Tabs<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                        <ul class="nav-sub-childmenu submenu-content">
-                          <li><a href="tab-bootstrap.html">Bootstrap Tabs</a></li>
-                          <li><a href="tab-material.html">Line Tabs</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="box-shadow.html">Shadow</a></li>
-                      <li><a href="list.html">Lists</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="folder-plus"></i><span>Bonus Ui</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="scrollable.html">Scrollable</a></li>
-                      <li><a href="tree.html">Tree view</a></li>
-                      <li><a href="bootstrap-notify.html">Bootstrap Notify</a></li>
-                      <li><a href="rating.html">Rating</a></li>
-                      <li><a href="dropzone.html">dropzone</a></li>
-                      <li><a href="tour.html">Tour</a></li>
-                      <li><a href="sweet-alert2.html">SweetAlert2</a></li>
-                      <li><a href="modal-animated.html">Animated Modal</a></li>
-                      <li><a href="owl-carousel.html">Owl Carousel</a></li>
-                      <li><a href="ribbons.html">Ribbons</a></li>
-                      <li><a href="pagination.html">Pagination</a></li>
-                      <li><a href="breadcrumb.html">Breadcrumb</a></li>
-                      <li><a href="range-slider.html">Range Slider</a></li>
-                      <li><a href="image-cropper.html">Image cropper</a></li>
-                      <li><a href="sticky.html">Sticky</a></li>
-                      <li><a href="basic-card.html">Basic Card</a></li>
-                      <li><a href="creative-card.html">Creative Card</a></li>
-                      <li><a href="tabbed-card.html">Tabbed Card</a></li>
-                      <li><a href="dragable-card.html">Draggable Card</a></li>
-                      <li><a class="submenu-title" href="javascript:void(0)">Timeline<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                        <ul class="nav-sub-childmenu submenu-content">
-                          <li><a href="timeline-v-1.html">Timeline 1</a></li>
-                          <li><a href="timeline-v-2.html">Timeline 2</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="edit-3"></i><span>Builders</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="form-builder-1.html"> Form Builder 1</a></li>
-                      <li><a href="form-builder-2.html"> Form Builder 2</a></li>
-                      <li><a href="pagebuild.html">Page Builder</a></li>
-                      <li><a href="button-builder.html">Button Builder</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="cloud-drizzle"></i><span>Animation</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="animate.html">Animate</a></li>
-                      <li><a href="scroll-reval.html">Scroll Reveal</a></li>
-                      <li><a href="AOS.html">AOS animation</a></li>
-                      <li><a href="tilt.html">Tilt Animation</a></li>
-                      <li><a href="wow.html">Wow Animation</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="command"></i><span>Icons</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="flag-icon.html">Flag icon</a></li>
-                      <li><a href="font-awesome.html">Fontawesome Icon</a></li>
-                      <li><a href="ico-icon.html">Ico Icon</a></li>
-                      <li><a href="themify-icon.html">Thimify Icon</a></li>
-                      <li><a href="feather-icon.html">Feather icon</a></li>
-                      <li><a href="whether-icon.html">Whether Icon</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="cloud"></i><span>Buttons</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="buttons.html">Default Style</a></li>
-                      <li><a href="button-group.html">Button Group</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="bar-chart"></i><span>Charts</span></a>
-                    <ul class="sidebar-submenu">                
-                      <li><a href="chart-apex.html">Apex Chart</a></li>
-                      <li><a href="chart-google.html">Google Chart</a></li>
-                      <li><a href="chart-sparkline.html">Sparkline chart</a></li>
-                      <li><a href="chart-flot.html">Flot Chart</a></li>
-                      <li><a href="chart-knob.html">Knob Chart</a></li>
-                      <li><a href="chart-morris.html">Morris Chart</a></li>
-                      <li><a href="chartjs.html">Chatjs Chart</a></li>
-                      <li><a href="chartist.html">Chartist Chart</a></li>
-                      <li><a href="chart-peity.html">Peity Chart</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-main-title">  
-                    <div>       
-                      <h4>Pages    </h4>
-                    </div>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="landing-page.html"><i data-feather="cast"> </i><span>Landing page</span></a></li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="sample-page.html"><i data-feather="file-text"> </i><span>Sample page</span></a></li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="internationalization.html"><i data-feather="globe"> </i><span>Internationalization</span></a></li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="https://admin.pixelstrap.com/koho/starter-kit/index.html" target="_blank"><i data-feather="anchor"></i><span>Starter kit</span></a></li>
-                  <li class="mega-menu"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="layers"></i><span>Others</span></a>
-                    <div class="mega-menu-container menu-content">
-                      <div class="container-fluid">
-                        <div class="row">
-                          <div class="col mega-box">
-                            <div class="link-section">
-                              <div class="submenu-title">
-                                <h5>Error Page</h5>
-                              </div>
-                              <ul class="submenu-content opensubmegamenu">
-                                <li><a href="error-page1.html">Error Page 1</a></li>
-                                <li><a href="error-page2.html">Error Page 2</a></li>
-                                <li><a href="error-page3.html">Error Page 3</a></li>
-                                <li><a href="error-page4.html">Error Page 4</a></li>
-                                <li><a href="error-page5.html">Error Page 5                            </a></li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div class="col mega-box">
-                            <div class="link-section">
-                              <div class="submenu-title">
-                                <h5> Authentication</h5>
-                              </div>
-                              <ul class="submenu-content opensubmegamenu">
-                                <li><a href="login.html" target="_blank">Login Simple</a></li>
-                                <li><a href="login_one.html" target="_blank">Login with bg image</a></li>
-                                <li><a href="login_two.html" target="_blank">Login with image two                      </a></li>
-                                <li><a href="login-bs-validation.html" target="_blank">Login With validation</a></li>
-                                <li><a href="login-bs-tt-validation.html" target="_blank">Login with tooltip</a></li>
-                                <li><a href="login-sa-validation.html" target="_blank">Login with sweetalert</a></li>
-                                <li><a href="sign-up.html" target="_blank">Register Simple</a></li>
-                                <li><a href="sign-up-one.html" target="_blank">Register with Bg Image                              </a></li>
-                                <li><a href="sign-up-two.html" target="_blank">Register with Bg video</a></li>
-                                <li><a href="unlock.html">Unlock User</a></li>
-                                <li><a href="forget-password.html">Forget Password</a></li>
-                                <li><a href="reset-password.html">Reset Password</a></li>
-                                <li><a href="maintenance.html">Maintenance</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div class="col mega-box">
-                            <div class="link-section">
-                              <div class="submenu-title">
-                                <h5>Coming Soon</h5>
-                              </div>
-                              <ul class="submenu-content opensubmegamenu">
-                                <li><a href="comingsoon.html">Coming Simple</a></li>
-                                <li><a href="comingsoon-bg-video.html">Coming with Bg video</a></li>
-                                <li><a href="comingsoon-bg-img.html">Coming with Bg Image</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div class="col mega-box">
-                            <div class="link-section">
-                              <div class="submenu-title">
-                                <h5>Email templates</h5>
-                              </div>
-                              <ul class="submenu-content opensubmegamenu">
-                                <li><a href="basic-template.html">Basic Email</a></li>
-                                <li><a href="email-header.html">Basic With Header</a></li>
-                                <li><a href="template-email.html">Ecomerce Template</a></li>
-                                <li><a href="template-email-2.html">Email Template 2</a></li>
-                                <li><a href="ecommerce-templates.html">Ecommerce Email</a></li>
-                                <li><a href="email-order-success.html">Order Success</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="sidebar-main-title">          
-                    <div>
-                      <h4>Miscellaneous             </h4>
-                    </div>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="image"></i><span>Gallery</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="gallery.html">Gallery Grid</a></li>
-                      <li><a href="gallery-with-description.html">Gallery Grid Desc</a></li>
-                      <li><a href="gallery-masonry.html">Masonry Gallery</a></li>
-                      <li><a href="masonry-gallery-with-disc.html">Masonry with Desc</a></li>
-                      <li><a href="gallery-hover.html">Hover Effects</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="film"></i><span>Blog</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="blog.html">Blog Details</a></li>
-                      <li><a href="blog-single.html">Blog Single</a></li>
-                      <li><a href="add-post.html">Add Post</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="faq.html"><i data-feather="help-circle"> </i><span>FAQ</span></a></li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="package"></i><span>Job Search</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="job-cards-view.html">Cards view</a></li>
-                      <li><a href="job-list-view.html">List View</a></li>
-                      <li><a href="job-details.html">Job Details</a></li>
-                      <li><a href="job-apply.html">Apply</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="radio"></i><span>Learning</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="learning-list-view.html">Learning List</a></li>
-                      <li><a href="learning-detailed.html">Detailed Course</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="map"></i><span>Maps</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="map-js.html">Maps JS</a></li>
-                      <li><a href="vector-map.html">Vector Maps</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="edit"></i><span>Editors</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="summernote.html">Summer Note</a></li>
-                      <li><a href="ckeditor.html">CK editor</a></li>
-                      <li><a href="simple-MDE.html">MDE editor</a></li>
-                      <li><a href="ace-code-editor.html">ACE code editor</a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="sunrise"> </i><span>Knowledgebase</span></a>
-                    <ul class="sidebar-submenu">
-                      <li><a href="knowledgebase.html">Knowledgebase</a></li>
-                      <li><a href="knowledge-category.html">Knowledge category</a></li>
-                      <li><a href="knowledge-detail.html">Knowledge detail              </a></li>
-                    </ul>
-                  </li>
-                  <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="support-ticket.html"><i data-feather="users"> </i><span>Support Ticket      </span></a></li>
-                </ul>
-              </div>
-              <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
-            </nav>
-          </div>
-        </div>
-        <!-- Page Sidebar Ends-->
-            <!-- Page Header Ends-->
-         
-
-    <!-- Sidebar jquery-->
-    <script src="{% static 'assets/js/config.js' %}"></script>
-    <script src="{% static 'assets/js/sidebar-menu.js' %}"></script>
-    <script src="{% static 'assets/js/tooltip-init.js' %}"></script>
- 
-    
+<div class="sidebar-wrapper">
+  <div class="sidebar sidebar-collapse" id="sidebar">
+  <div class="sidebar__menu-group">
+  <ul class="sidebar_nav">
+  <li class="has-child open">
+  <a href="index.html#" class="active">
+  <span class="nav-icon uil uil-create-dashboard"></span>
+  <span class="menu-text">Dashboard</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="active">
+  <a href="index.html">Demo 1</a>
+  </li>
+  <li class="">
+  <a href="demo2.html">Demo 2</a>
+  </li>
+  <li class="">
+  <a href="demo3.html">Demo 3</a>
+  </li>
+  <li class="">
+  <a href="demo4.html">Demo 4</a>
+  </li>
+  <li class="">
+  <a href="demo5.html">
+  Demo 5</a>
+  </li>
+  <li class="">
+  <a href="demo6.html">
+  Demo 6</a>
+  </li>
+  <li class="">
+  <a href="demo7.html">
+  Demo 7</a>
+  </li>
+  <li class="">
+  <a href="demo8.html">
+  Demo 8</a>
+  </li>
+  <li class="">
+  <a href="demo9.html">
+  Demo 9</a>
+  </li>
+  <li class="">
+  <a href="demo10.html">
+  Demo 10</a>
+  </li>
+  </ul>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-window-section"></span>
+  <span class="menu-text">Layouts</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="l_sidebar">
+  <a href="index.html#" data-layout="light">Light Mode</a>
+  </li>
+  <li class="l_sidebar">
+  <a href="index.html#" data-layout="dark">Dark Mode</a>
+  </li>
+  <li class="l_navbar">
+  <a href="index.html#" data-layout="top">Top Menu</a>
+  </li>
+  <li class="layout">
+  <a href="https://demo.dashboardmarket.com/hexadash-html/rtl">RTL</a>
+  </li>
+  <li class="layout">
+  <a href="https://demo.dashboardmarket.com/hexadash-html/ltr">LTR</a>
+  </li>
+  </ul>
+  </li>
+  <li>
+  <a href="changelog.html" class="">
+  <span class="nav-icon uil uil-arrow-growth"></span>
+  <span class="menu-text">Changelog</span>
+  <span class="badge badge-info-10 menuItem rounded-pill">1.1.6</span>
+  </a>
+  </li>
+  <li class="menu-title mt-30">
+  <span>Applications</span>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-envelope"></span>
+  <span class="menu-text">Email</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="inbox.html">Inbox</a>
+  </li>
+  <li class="">
+  <a href="read-email.html">Read
+  Email</a>
+  </li>
+  </ul>
+  </li>
+  <li>
+  <a href="chat.html" class="">
+  <span class="nav-icon uil uil-chat"></span>
+  <span class="menu-text">Chat</span>
+  <span class="badge badge-success menuItem rounded-circle">3</span>
+  </a>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-bag"></span>
+  <span class="menu-text text-initial">eCommerce</span>
+   <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="products.html">Products</a>
+  </li>
+  <li class="">
+  <a href="product-details.html">Product
+  Details</a>
+  </li>
+  <li class="">
+  <a href="add-product.html">Product
+  Add</a>
+  </li>
+  <li class="">
+  <a href="add-product.html">Product
+  Edit</a>
+  </li>
+  <li class="">
+  <a href="cart.html">Cart</a>
+  </li>
+  <li class="">
+  <a href="order.html">Orders</a>
+  </li>
+  <li class="">
+  <a href="sellers.html">Sellers</a>
+  </li>
+  <li class="">
+  <a href="invoice.html">Invoices</a>
+  </li>
+  </ul>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-folder"></span>
+  <span class="menu-text">Project</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="projects.html">Project</a>
+  </li>
+  <li class="">
+  <a href="application-ui.html">Project
+  Details</a>
+  </li>
+  <li class="">
+  <a href="create.html">Create
+  Project</a>
+  </li>
+  </ul>
+  </li>
+  <li>
+  <a href="calendar.html" class="">
+  <span class="nav-icon uil uil-calendar-alt"></span>
+  <span class="menu-text">Calendar</span>
+  </a>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-users-alt"></span>
+  <span class="menu-text">Users</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="users-membar.html">Team</a>
+  </li>
+  <li class="">
+  <a href="users-card.html">Users Grid</a>
+  </li>
+  <li class="">
+  <a href="users-list.html">Users
+  List</a>
+  </li>
+  <li class="">
+  <a href="users-card2.html">Users Grid
+  style</a>
+  </li>
+  <li class="">
+  <a href="users-group.html">Users
+  Group</a>
+  </li>
+  <li class="">
+  <a href="user-info.html">Add User</a>
+  </li>
+  <li class="">
+  <a href="users-datatable.html">Users
+  Table</a>
+  </li>
+  </ul>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-at"></span>
+  <span class="menu-text">Contact</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="contact-2.html">Contact
+  Grid</a>
+  </li>
+  <li class="">
+  <a href="contact-1.html">Contact
+  List</a>
+  </li>
+  <li class="">
+  <a href="contact-3.html">Contact
+  Create</a>
+  </li>
+  </ul>
+  </li>
+  <li class="">
+  <a href="note.html">
+  <span class="nav-icon uil uil-clipboard-notes"></span>
+  <span class="menu-text">Note</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="to-do.html">
+  <span class="nav-icon uil uil-check-square"></span>
+  <span class="menu-text">To-Do</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="kanban.html">
+  <span class="nav-icon uil uil-expand-arrows"></span>
+  <span class="menu-text">Kanban Board</span>
+  </a>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-exchange"></span>
+  <span class="menu-text">Import & Export</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="import.html">Import</a>
+  </li>
+  <li class="">
+  <a href="export.html">Export</a>
+  </li>
+  <li class="">
+  <a href="export-selected.html">Export
+  Selected
+  </a>
+  </li>
+  </ul>
+  </li>
+  <li class="">
+  <a href="file-manager.html">
+  <span class="nav-icon uil uil-file"></span>
+  <span class="menu-text">File Manager</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="task-app.html">
+  <span class="nav-icon uil uil-lightbulb-alt"></span>
+  <span class="menu-text">Task App</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="bookmarks.html">
+  <span class="nav-icon uil uil-bookmark"></span>
+  <span class="menu-text">Bookmarks</span>
+  </a>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-apps"></span>
+  <span class="menu-text">Social App</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="profile.html">My Profile</a>
+  </li>
+  <li class="">
+  <a href="profile-setting.html">Profile
+  Settings</a>
+  </li>
+  </ul>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-books"></span>
+  <span class="menu-text">Learning App</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="course.html">Course</a>
+  </li>
+  <li class="">
+  <a href="course-details.html">Course
+  Details</a>
+  </li>
+  </ul>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-user"></span>
+  <span class="menu-text">Support</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="support-ticket.html">Support
+  Ticket</a>
+  </li>
+  <li class="">
+  <a href="support-details.html">Ticket
+  Details</a>
+  </li>
+  <li class="">
+  <a href="new-ticket.html">New
+  Ticket</a>
+  </li>
+  </ul>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-search"></span>
+  <span class="menu-text">JobSearch</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="jobSearch.html">Grid
+  view</a>
+  </li>
+  <li class="">
+  <a href="jobSearchList.html">List view</a>
+  </li>
+  <li class="">
+  <a href="jobDetails.html">Details</a>
+  </li>
+  <li class="">
+  <a href="job-apply.html">Apply</a>
+  </li>
+  </ul>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-table"></span>
+  <span class="menu-text">Table</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="basic-table.html">Basic
+  Table</a>
+  </li>
+  <li class="">
+  <a href="datatable.html">Data
+  Table</a>
+  </li>
+  <li class="">
+  <a href="dynamic-table.html">
+  Dynamic Table
+  </a>
+  </li>
+  </ul>
+  </li>
+  <li class="menu-title mt-30">
+  <span>CRUD</span>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-database"></span>
+  <span class="menu-text">Firestore Crud</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="firestore.html">View All</a>
+  </li>
+  <li class="">
+  <a href="firestore-add.html">Add
+  New</a>
+  </li>
+  </ul>
+  </li>
+  <li class="menu-title mt-30">
+  <span>Features</span>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-layers"></span>
+  <span class="menu-text">UI Elements</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="alert.html">Alert</a>
+  </li>
+  <li class="">
+  <a href="avatar.html">Avatar</a>
+  </li>
+  <li class="">
+  <a href="badge.html">Badge</a>
+  </li>
+  <li class="">
+  <a href="breadcrumbs.html">Breadcrumb</a>
+  </li>
+  <li class="" class="">
+  <a href="buttons.html">Button</a>
+  </li>
+  <li class="">
+  <a href="cards.html">Cards</a>
+  </li>
+  <li class="">
+  <a href="carousel.html">Carousel</a>
+  </li>
+  <li class="">
+  <a href="checkbox.html">Checkbox</a>
+  </li>
+  <li class="">
+  <a href="collapse.html">Collapse</a>
+  </li>
+  <li class="">
+  <a href="comments.html">Comments</a>
+  </li>
+  <li class="">
+  <a href="date-picker.html">DatePicker</a>
+  </li>
+  <li class="">
+  <a href="drawer.html">Drawer</a>
+  </li>
+  <li class="">
+  <a href="drag-drop.html">Drag &
+  Drop</a>
+  </li>
+  <li class="">
+  <a href="dropdown.html">Dropdown</a>
+  </li>
+  <li class="">
+  <a href="empty.html">Empty</a>
+  </li>
+  <li class="">
+  <a href="grid.html">Grid</a>
+  </li>
+  <li class="">
+  <a href="input.html">Input</a>
+  </li>
+  <li class="">
+  <a href="list.html">List</a>
+  </li>
+  <li class="">
+  <a href="menu.html">Menu</a>
+  </li>
+  <li class="">
+  <a href="message.html">Message</a>
+  </li>
+  <li class="">
+  <a href="modal.html">Modals</a>
+  </li>
+  <li class="">
+  <a href="notifications.html">Notification</a>
+  </li>
+  <li class="">
+  <a href="page-header.html">Page
+  Headers</a>
+  </li>
+  <li class="">
+  <a href="pagination.html">Paginations</a>
+  </li>
+  <li class="">
+  <a href="progressbar.html">Progress</a>
+  </li>
+  <li class="">
+  <a href="radio.html">Radio</a>
+  </li>
+  <li class="">
+  <a href="rate.html">Rate</a>
+  </li>
+  <li class="">
+  <a href="result.html">Result</a>
+  </li>
+  <li class="">
+  <a href="select.html">Select</a>
+  </li>
+  <li class="">
+  <a href="skeleton.html">Skeleton</a>
+  </li>
+  <li class="">
+  <a href="slider.html">Slider</a>
+  </li>
+  <li class="">
+  <a href="spin.html">Spinner</a>
+  </li>
+  <li class="">
+  <a href="statistics.html">Statistic</a>
+  </li>
+  <li class="">
+  <a href="steps.html">Steps</a>
+  </li>
+  <li class="">
+  <a href="switch.html">Switch</a>
+  </li>
+  <li class="">
+  <a href="tab.html">Tabs</a>
+  </li>
+  <li class="">
+  <a href="tag.html">Tags</a>
+  </li>
+  <li class="">
+  <a href="timeline.html">Timeline</a>
+  </li>
+  <li class="">
+  <a href="timeline-2.html">Timeline 2</a>
+  </li>
+  <li class="">
+  <a href="timeline-3.html">Timeline
+  3</a>
+  </li>
+  <li class="">
+  <a href="time-picker.html">Timepicker</a>
+  </li>
+  <li class="">
+  <a href="dashboard-base.html">Typography</a>
+  </li>
+  <li class="">
+  <a href="uploads.html">Upload</a>
+  </li>
+  </ul>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-chart"></span>
+  <span class="menu-text">Charts</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="charts.html">Chart JS</a>
+  </li>
+  <li class="">
+  <a href="apexchart.html">
+  <span class="menu-text">Apexchart</span>
+  <span class="badge badge-success menuItem">New</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="google-chart.html">Google
+  Charts</a>
+  </li>
+  <li class="">
+  <a href="peity-chart.html">Peity
+  Charts</a>
+  </li>
+  </ul>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+   <span class="nav-icon uil uil-keyhole-circle"></span>
+  <span class="menu-text">Froms</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="form.html">Basics</a>
+  </li>
+  <li class="">
+  <a href="form-layouts.html">Layouts</a>
+  </li>
+  <li class="">
+  <a href="form-elements.html">Elements</a>
+  </li>
+  <li class="">
+  <a href="form-components.html">Components</a>
+  </li>
+  <li class="">
+  <a href="form-validations.html">Validations</a>
+  </li>
+  </ul>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-server"></span>
+  <span class="menu-text">Widget</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="widget-charts.html">Chart</a>
+  </li>
+  <li class="">
+  <a href="widget-mixed.html">Mixed</a>
+  </li>
+  <li class="">
+  <a href="widget-card.html">Card</a>
+  </li>
+  </ul>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-square"></span>
+  <span class="menu-text">Wizards</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="checkout-wizard6.html">Wizard
+  1</a>
+  </li>
+  <li class="">
+  <a href="checkout-wizard7.html">Wizard
+  2</a>
+  </li>
+  <li class="">
+  <a href="checkout-wizard8.html">Wizard
+  3</a>
+  </li>
+  <li class="">
+  <a href="checkout-wizard9.html">Wizard
+  4</a>
+  </li>
+  <li class="">
+  <a href="checkout-wizard10.html">Wizard
+  5</a>
+  </li>
+  </ul>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-grid"></span>
+  <span class="menu-text">Icons</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="unicon-icons.html">Unicon
+  Icons</a>
+  </li>
+  <li class="">
+  <a href="fontawesome.html">Font
+  Awesome</a>
+  </li>
+  <li class="">
+  <a href="lineawesome.html">Line
+  Awesome</a>
+  </li>
+  </ul>
+  </li>
+  <li>
+  <a href="editors.html" class="">
+  <span class="nav-icon uil uil-edit"></span>
+  <span class="menu-text">Editors</span>
+  </a>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-map"></span>
+  <span class="menu-text">Maps</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="google-map.html">Google
+  Maps</a>
+  </li>
+  <li class="">
+  <a href="leaflet-map.html">Leaflet
+  Maps</a>
+  </li>
+  <li class="">
+  <a href="vector-map.html">Vector
+   Maps</a>
+  </li>
+  </ul>
+  </li>
+  <li class="menu-title mt-30">
+  <span>Pages</span>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-images"></span>
+  <span class="menu-text">Gallery</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="gallery.html">Gallery 1</a>
+  </li>
+  <li class="">
+  <a href="gallery2.html">Gallery 2</a>
+  </li>
+  </ul>
+  </li>
+  <li>
+  <a href="pricing.html" class="">
+  <span class="nav-icon uil uil-bill"></span>
+  <span class="menu-text">Pricing</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="banner.html">
+  <span class="nav-icon uil uil-thumbs-up"></span>
+  <span class="menu-text">Banners</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="testimonial.html">
+  <span class="nav-icon uil uil-book-open"></span>
+  <span class="menu-text">Testimonial</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="faq.html">
+  <span class="nav-icon uil uil-question-circle"></span>
+  <span class="menu-text">FAQ's</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="search.html">
+  <span class="nav-icon uil uil-credit-card-search"></span>
+  <span class="menu-text">Search Results</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="blank.html">
+  <span class="nav-icon uil uil-circle"></span>
+  <span class="menu-text">Blank Page</span>
+  </a>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-window"></span>
+  <span class="menu-text">Knowledge Base</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="knowledgebase.html">Knowledge
+  Base</a>
+  </li>
+  <li class="">
+  <a href="knowledgebase-2.html">All
+  Article</a>
+  </li>
+  <li class="">
+  <a href="knowledgebase-3.html">Single
+  Article</a>
+  </li>
+  </ul>
+  </li>
+  <li class="">
+  <a href="support.html">
+  <span class="nav-icon uil uil-headphones"></span>
+  <span class="menu-text">Support Center</span>
+  </a>
+  </li>
+  <li class="has-child">
+  <a href="index.html#" class="">
+  <span class="nav-icon uil uil-images"></span>
+  <span class="menu-text">Blog</span>
+  <span class="toggle-icon"></span>
+  </a>
+  <ul>
+  <li class="">
+  <a href="blog.html">style 1</a>
+  </li>
+  <li class="">
+  <a href="blog2.html">Style 2</a>
+  </li>
+  <li class="">
+  <a href="blog3.html">Style 3</a>
+  </li>
+  <li class="">
+  <a href="blog-details.html">Details</a>
+  </li>
+  </ul>
+  </li>
+  <li class="">
+  <a href="terms.html">
+  <span class="nav-icon uil uil-question-circle"></span>
+  <span class="menu-text">Terms & Conditions</span>
+  </a>
+  </li>
+   <li class="">
+  <a href="maintenance.html">
+  <span class="nav-icon uil uil-airplay"></span>
+  <span class="menu-text">Maintenance</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="404.html">
+  <span class="nav-icon uil uil-exclamation-triangle"></span>
+  <span class="menu-text">404</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="coming-soon.html">
+  <span class="nav-icon uil uil-sync"></span>
+  <span class="menu-text">Coming Soon</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="login.html">
+  <span class="nav-icon uil uil-signin"></span>
+  <span class="menu-text">Log In</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="sign-up.html">
+  <span class="nav-icon uil uil-sign-out-alt"></span>
+  <span class="menu-text">Sign Up</span>
+  </a>
+  </li>
+  </ul>
+  </div>
+  </div>
+  </div>  
         {% endblock content_sidebar %}

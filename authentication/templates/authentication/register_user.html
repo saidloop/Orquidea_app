@@ -1,0 +1,161 @@
+{% load static %}
+<div class="modal-dialog modal-md" role="document">
+    <div class="modal-content modal-bg-white ">
+        <div class="modal-header">
+            <h6 class="modal-title">Basic title</h6>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <img src="{% static 'assets/img/svg/x.svg' %}" alt="x" class="svg">
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="card-body py-md-25">
+                <form id="register_user" action="{% url 'authentication:register' %}" method="POST"
+                    class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name" class="il-gray fs-14 fw-500 align-center mb-10">Nombres</label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    name="first_name" placeholder="Peter" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid name.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="lastname" class="il-gray fs-14 fw-500 align-center mb-10">Apellidos</label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    name="last_name" placeholder="Parker Benjamin" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid apellido.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group form-group-calender">
+                                <label for="datepicker8" class="il-gray fs-14 fw-500 align-center mb-10">Fecha de
+                                    Nacimiento</label>
+                                <div class="position-relative">
+                                    <input type="date" class="form-control  ih-medium ip-light radius-xs b-light px-15"
+                                        id="date" name="birthday" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid birthday.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1" class="il-gray fs-14 fw-500 align-center mb-10">
+                                    Tipo de identificacion </label>
+                                <select class="form-control px-15" name="id_type" id="exampleFormControlSelect1">
+
+                                    {% for identification_type in form.id_type.field.queryset %}
+                                    <option value="{{ identification_type.pk }}">{{ identification_type.type }}</option>
+                                    {% endfor %}
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="a5" class="il-gray fs-14 fw-500 align-center mb-10"> Numero de
+                                    Identidad</label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a5" name="identification" placeholder="123456789" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid numero de identidad.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="a6" class="il-gray fs-14 fw-500 align-center mb-10">Numero de
+                                    contacto</label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a6" name="phone_number" placeholder="3121234567" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid numero de contacto.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="a7" class="il-gray fs-14 fw-500 align-center mb-10">Direccion de
+                                    residencia</label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a7" name="address" placeholder="calle 1 avenida 2 #34-56">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect" class="il-gray fs-14 fw-500 align-center mb-10">
+                                    Rol a ocupar </label>
+                                <select class="form-control px-15" name="role" id="countryOption">
+
+                                    {% for role in form.role.field.queryset %}
+                                    <option value="{{ role.pk }}">{{ role.rol_name }}</option>
+                                    {% endfor %}
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="a9" class="il-gray fs-14 fw-500 align-center mb-10">Correo
+                                    Electronico</label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a9" name="email" placeholder="username@mail.com" required>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="a9" class="il-gray fs-14 fw-500 align-center mb-10">Nombre de
+                                    usuario</label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a9" name="username" placeholder="username">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="a9" class="il-gray fs-14 fw-500 align-center mb-10">Contraseña</label>
+                                <input type="password" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a9" name="password" placeholder="********">
+                            </div>
+                        </div>
+
+                    </div>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" form="register_user" class="btn btn-primary btn-sm">Save changes</button>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'assets/js/login/validation.js' %}"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $("select").select2();
+            }
+        
+    );
+    
+</script>
