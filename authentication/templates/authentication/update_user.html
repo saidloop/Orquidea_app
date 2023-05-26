@@ -2,23 +2,23 @@
 <div class="modal-dialog modal-md" role="document">
     <div class="modal-content modal-bg-white ">
         <div class="modal-header">
-            <h6 class="modal-title">Registro de Usuario</h6>
+            <h6 class="modal-title">Actualizar Datos de {{ profile.user.username }} </h6>
             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <img src="{% static 'assets/img/svg/x.svg' %}" alt="x" class="svg">
             </button>
         </div>
         <div class="modal-body">
             <div class="card-body py-md-25">
-                <form id="register_user" action="{% url 'authentication:register' %}" method="POST"
+                <form id="update_user" action="{% url 'authentication:update_user' profile.id %}" method="POST"
                     class="needs-validation" novalidate>
                     {% csrf_token %}
                     <div class="row">
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="name" class="il-gray fs-14 fw-500 align-center mb-10">Nombres</label>
+                                <label for="{{ form.first_name.id_for_label }}" class="il-gray fs-14 fw-500 align-center mb-10">Nombres</label>
                                 <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                    name="first_name" placeholder="Peter" required>
+                                    name="first_name" placeholder="Peter" value="{{ profile.user.first_name }}" required>
                                 <div class="invalid-feedback">
                                     Please enter a valid name.
                                 </div>
@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <label for="lastname" class="il-gray fs-14 fw-500 align-center mb-10">Apellidos</label>
                                 <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                    name="last_name" placeholder="Parker Benjamin" required>
+                                    name="last_name" placeholder="Parker Benjamin" value="{{ profile.user.last_name }}" required>
                                 <div class="invalid-feedback">
                                     Please enter a valid apellido.
                                 </div>
@@ -42,7 +42,7 @@
                                     Nacimiento</label>
                                 <div class="position-relative">
                                     <input type="date" class="form-control  ih-medium ip-light radius-xs b-light px-15"
-                                        id="date" name="birthday" required>
+                                        id="date" name="birthday" value="{{ profile.birthday|default:'' }}" required>
                                     <div class="invalid-feedback">
                                         Please enter a valid birthday.
                                     </div>
@@ -53,24 +53,27 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1" class="il-gray fs-14 fw-500 align-center mb-10">
-                                    Tipo de identificacion </label>
+                                    Tipo de identificación
+                                </label>
                                 <select class="form-control px-15" name="id_type" id="exampleFormControlSelect1">
-
                                     {% for identification_type in form.id_type.field.queryset %}
-                                    <option value="{{ identification_type.pk }}">{{ identification_type.type }}</option>
+                                        <option value="{{ identification_type.pk }}"
+                                            {% if form.instance.id_type == identification_type %}selected{% endif %}>
+                                            {{ identification_type.type }}
+                                        </option>
                                     {% endfor %}
-
                                 </select>
                             </div>
                         </div>
+                        
 
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="a5" class="il-gray fs-14 fw-500 align-center mb-10"> Numero de
                                     Identidad</label>
                                 <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                    id="a5" name="identification" placeholder="123456789" required>
-                                <div class="invalid-feedback">
+                                    id="a5" name="identification" placeholder="123456789" value="{{profile.identification}}" required>
+                                <div class="invalid-feedback" >
                                     Please enter a valid numero de identidad.
                                 </div>
                             </div>
@@ -81,8 +84,8 @@
                                 <label for="a6" class="il-gray fs-14 fw-500 align-center mb-10">Numero de
                                     contacto</label>
                                 <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                    id="a6" name="phone_number" placeholder="3121234567" required>
-                                <div class="invalid-feedback">
+                                    id="a6" name="phone_number" placeholder="3121234567" value="{{profile.phone_number}}" required>
+                                <div class="invalid-feedback" >
                                     Please enter a valid numero de contacto.
                                 </div>
                             </div>
@@ -93,39 +96,43 @@
                                 <label for="a7" class="il-gray fs-14 fw-500 align-center mb-10">Direccion de
                                     residencia</label>
                                 <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                    id="a7" name="address" placeholder="calle 1 avenida 2 #34-56">
+                                    id="a7" name="address" placeholder="calle 1 avenida 2 #34-56" value="{{profile.address}}" required>
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect" class="il-gray fs-14 fw-500 align-center mb-10">
-                                    Rol a ocupar </label>
+                                    Rol a ocupar
+                                </label>
                                 <select class="form-control px-15" name="role" id="countryOption">
-
                                     {% for role in form.role.field.queryset %}
-                                    <option value="{{ role.pk }}">{{ role.rol_name }}</option>
+                                        <option value="{{ role.pk }}"
+                                            {% if form.instance.role == role %}selected{% endif %}>
+                                            {{ role.rol_name }}
+                                        </option>
                                     {% endfor %}
-
                                 </select>
                             </div>
                         </div>
+                        
 
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="a9" class="il-gray fs-14 fw-500 align-center mb-10">Correo
                                     Electronico</label>
                                 <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                    id="a9" name="email" placeholder="username@mail.com" required>
+                                    id="a9" name="email" placeholder="username@mail.com" value="{{profile.user.email}}" required>
 
                             </div>
                         </div>
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="a9" class="il-gray fs-14 fw-500 align-center mb-10">Nombre de
                                     usuario</label>
                                 <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                    id="a9" name="username" placeholder="username">
+                                    id="a9" name="username" placeholder="username" value="{{profile.user.username}}" required>
                             </div>
                         </div>
 
@@ -133,7 +140,7 @@
                             <div class="form-group">
                                 <label for="a9" class="il-gray fs-14 fw-500 align-center mb-10">Contraseña</label>
                                 <input type="password" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                    id="a9" name="password1" placeholder="********">
+                                    id="a9" name="password1" placeholder="********" value="{{ form.instance.password1 }}">
                             </div>
                         </div>
 
@@ -141,9 +148,10 @@
                             <div class="form-group">
                                 <label for="a9" class="il-gray fs-14 fw-500 align-center mb-10">Confirmar Contraseña</label>
                                 <input type="password" class="form-control ih-medium ip-light radius-xs b-light px-15"
-                                    id="a9" name="password2" placeholder="********">
+                                    id="a9" name="password2" placeholder="********" value="{{ form.instance.password2 }}">
                             </div>
                         </div>
+
 
                     </div>
                     <div class="card-body">
@@ -159,24 +167,23 @@
                             </div>
                         </div>
                     </div>
-
             </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" form="register_user" class="btn btn-primary btn-sm">Registrar Usuario</button>
+            <button type="submit" form="update_user" class="btn btn-primary btn-sm">Actualizar</button>
         </div>
     </div>
 </div>
 
-<script src="{% static 'assets/js/login/validation.js' %}"></script>
+
 
 
 <script>
-document.getElementById('register_user').addEventListener('submit', function (e) {
+document.getElementById('update_user').addEventListener('submit', function (e) {
   e.preventDefault();
-  var url = "/user/register/";
-  var formulario = new FormData(document.getElementById('register_user'));
+  var url = "/user/update/{{profile.pk}}/";
+  var formulario = new FormData(document.getElementById('update_user'));
   console.log(formulario);
 
   fetch(url, {
@@ -199,4 +206,16 @@ document.getElementById('register_user').addEventListener('submit', function (e)
 
 <script>
     $("select").select2()
+</script>
+
+<script>
+    // Obtener el elemento del campo de fecha
+    const birthdayInput = document.getElementById('date');
+
+    // Obtener la fecha de nacimiento del perfil y convertirla en formato adecuado para el campo de fecha
+    const birthday = '{{ profile.birthday|default:'' }}';
+    const formattedBirthday = birthday ? new Date(birthday).toISOString().split('T')[0] : '';
+
+    // Establecer el valor del campo de fecha
+    birthdayInput.value = formattedBirthday;
 </script>

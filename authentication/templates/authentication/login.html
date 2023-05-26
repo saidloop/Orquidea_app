@@ -10,10 +10,16 @@
         <div class="row justify-content-center">
           <div class="col-xxl-3 col-xl-4 col-md-6 col-sm-8">
             <div class="edit-profile">
+              <div class="edit-profile__logos">
+                <a href="index.html">
+                <img class="dark" src="{% static 'assets/img/favicon.svg' %}" alt="">
+                <img class="light" src="{% static 'assets/img/favicon.svg' %}" alt="">
+                </a>
+                </div>
               <div class="card border-0">
                 <div class="card-header">
                   <div class="edit-profile__title">
-                    <h6>Sign in </h6>
+                    <h6>Iniciar Sesion</h6>
                   </div>
                 </div>
                 <div class="card-body">
@@ -21,22 +27,22 @@
                     {% csrf_token %}
                     <div class="edit-profile__body">
                       <div class="form-group mb-25">
-                        <label for="username">Username or Email Address</label>
+                        <label for="username">Usuario</label>
                         <input type="text" class="form-control" name="username" id="username"
                           placeholder="name@example.com" required>
                         <div class="invalid-feedback">
-                          Please enter a valid email address.
+                          Porfavor ingrese un usuario valido.
                         </div>
                       </div>
                       <div class="form-group mb-15">
-                        <label for="password-field">password</label>
+                        <label for="password-field">Contraseña</label>
                         <div class="position-relative">
                           <input id="password-field" type="password" class="form-control" name="password"
-                            placeholder="Password" required>
+                            placeholder="************" required>
                           <div class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password2">
                           </div>
                           <div class="invalid-feedback">
-                            Please enter a valid Password.
+                            Porfavor ingrese una Contraseña valida
                           </div>
                           
 
@@ -60,17 +66,17 @@
                         <div class="checkbox-theme-default custom-checkbox ">
                           <input class="checkbox" type="checkbox" id="check-1">
                           <label for="check-1">
-                            <span class="checkbox-text">Keep me logged in</span>
+                            <span class="checkbox-text">Mantener en Linea</span>
                           </label>
                         </div>
-                        <a href="forget-password.html">forget password?</a>
+                        <a href="forget-password.html">¿Olvidaste tu Contraseña?</a>
                       </div>
                       <div
                         class="admin__button-group button-group d-flex pt-1 justify-content-md-start justify-content-center">
                         <button
                           type="submit"
                           class="btn btn-primary btn-default w-100 btn-squared text-capitalize lh-normal px-50 signIn-createBtn ">
-                          sign in
+                          Entrar
                         </button>
                       </div>
                     </div>
