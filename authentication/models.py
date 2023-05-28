@@ -39,7 +39,7 @@ class Profile(models.Model):
                                         verbose_name=('identification'), help_text=('identification'))
                         
     birthday = models.DateField(blank=True, null=True,
-                                 verbose_name=('bithday'), help_text=('bithday'))
+                                 verbose_name=('birthday'), help_text=('birthday'))
 
     role = models.ForeignKey(Role, on_delete=models.CASCADE, related_name='role')
 

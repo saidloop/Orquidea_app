@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'dashboard',
     'authentication',
     'contracts',
+    'payments',
     
     'jazzmin',
     'django.contrib.admin',
