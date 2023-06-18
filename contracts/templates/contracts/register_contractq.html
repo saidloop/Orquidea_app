@@ -1,0 +1,278 @@
+{% load static %}
+<div class="modal-dialog modal-md" role="document">
+    <div class="modal-content modal-bg-white ">
+        <div class="modal-header">
+            <h6 class="modal-title">Registro de Contrato</h6>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <img src="{% static 'assets/img/svg/x.svg' %}" alt="x" class="svg">
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="card-body py-md-25">
+                <form id="register_contract" action="{% url 'contracts:register_contract' %}" method="POST"
+                    class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="name" class="il-gray fs-14 fw-500 align-center mb-10">Nombres Contratante</label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    name="first_name" placeholder="Peter" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un nombre valido.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="lastname" class="il-gray fs-14 fw-500 align-center mb-10">Apellidos Contratante</label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    name="last_name" placeholder="Parker Benjamin" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un apellido valido.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group form-group-calender">
+                                <label for="datepicker8" class="il-gray fs-14 fw-500 align-center mb-10">Fecha de
+                                    Nacimiento </label>
+                                <div class="position-relative">
+                                    <input type="date" class="form-control  ih-medium ip-light radius-xs b-light px-15"
+                                        id="date" name="birthday" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingrese una fecha valida.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="a5" class="il-gray fs-14 fw-500 align-center mb-10"> Numero de
+                                    Cedula </label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a5" name="identification" placeholder="123456789" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un numero de cedula valido.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="a5" class="il-gray fs-14 fw-500 align-center mb-10"> Lugar Expedicion 
+                                    Cedula </label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a5" name="identification" placeholder="Cucuta" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un lugar de expedicion valido.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="a6" class="il-gray fs-14 fw-500 align-center mb-10">Numero de
+                                    contacto </label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a6" name="expedition_place" placeholder="312123123" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese un numero de contacto valido.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="a7" class="il-gray fs-14 fw-500 align-center mb-10">Direccion de
+                                    residencia</label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a7" name="address" placeholder="calle 1 avenida 2 #34-56">
+                                <div class="invalid-feedback">
+                                    Por favor ingrese una direccion valida.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="a7" class="il-gray fs-14 fw-500 align-center mb-10">Trnsferido de </label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a7" name="transfer" placeholder="Los Olivos">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="a9" class="il-gray fs-14 fw-500 align-center mb-10">Correo
+                                    Electronico</label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a9" name="email" placeholder="username@mail.com" required>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="a9" class="il-gray fs-14 fw-500 align-center mb-10">N° Contrato</label>
+                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                    id="a9" name="contract_number" placeholder="0001">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group form-group-calender">
+                                <label for="datepicker8" class="il-gray fs-14 fw-500 align-center mb-10">Fecha de
+                                    Expedicion  </label>
+                                <div class="position-relative">
+                                    <input type="date" class="form-control  ih-medium ip-light radius-xs b-light px-15"
+                                        id="date" name="expedition_date" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingrese una fecha valida.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1" class="il-gray fs-14 fw-500 align-center mb-10">
+                                   Plan Contratado </label>
+                                <select class="form-control px-15" name="plan" id="exampleFormControlSelect1">
+
+                                    {% for plan in form.plan.field.queryset %}
+                                    <option value="{{ plan.pk }}">{{ plan.name }}</option>
+                                    {% endfor %}
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect" class="il-gray fs-14 fw-500 align-center mb-10">
+                                   Asesor</label>
+                                <select class="form-control px-15" name="asesor" id="exampleFormControlSelect">
+
+                                    {% for asesor in form.asesor.field.queryset %}
+                                    <option value="{{ asesor.pk }}">{{ asesor.name }}</option>
+                                    {% endfor %}
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">                          
+                                <button type="button" class="btn btn-secondary btn-sm" id="add">ADD</button>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">nombre</th>
+                                            <th scope="col">Asesor</th>
+                                            <th scope="col">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody">
+                                        <tr>
+                                            <td>
+                                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                id="a9" name="contract_number" placeholder="0001">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                id="a9" name="contract_number" placeholder="0001">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                id="a9" name="contract_number" placeholder="0001">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                id="a9" name="contract_number" placeholder="0001">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                id="a9" name="contract_number" placeholder="0001">
+                                            </td>
+
+                                        </tr>
+                                </table>
+                        
+                    
+
+    
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    
+
+                   
+
+                    
+                    <div class="card-body">
+                        <div id="alert-login" class="alert alert-danger alert-dismissible fade show"
+                            role="alert"
+                            style="display:none">
+                            <div class="alert-content">
+                                <p></p>
+                                <button type="button" class="btn-close text-capitalize"
+                                    data-bs-dismiss="alert" aria-label="Close">
+                                    <img src="{% static 'assets/img/svg/x.svg'%}" alt="x" class="svg" aria-hidden="true">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" form="register_user" class="btn btn-primary btn-sm">Registrar Usuario</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{% static 'assets/js/login/validation.js' %}"></script>
+
+
+
+<script>
+document.getElementById('register_user').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var url = "/user/register/";
+  var formulario = new FormData(document.getElementById('register_user'));
+  console.log(formulario);
+
+  fetch(url, {
+      method: 'POST',
+      body: formulario,       
+  })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+            window.location.href = data.url;
+        } else {
+            var alerta = document.getElementById('alert-login');
+            alerta.style.display = 'block';
+            alerta.querySelector('p').innerHTML = data.message;
+        }
+    });
+})    
+</script>
+
+<script>
+    $("select").select2()
+</script> 

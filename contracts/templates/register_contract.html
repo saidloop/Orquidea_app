@@ -1,0 +1,459 @@
+{% extends 'base/base.html' %} {% load static %}
+{% block content_nav %}
+{% include 'components/nav.html'%}
+{% endblock content_nav %}
+{% block content_sidebar %}
+{% include 'components/sidebar.html'%}
+{% endblock content_sidebar %}
+
+{%block content_body%}
+<div class="contents">
+        <div class="container-fluid">
+                <div class="row">
+                        <div class="col-lg-12 mb-30">
+                                <div class="card mt-30">
+                                        <div class="card-body">
+                                                <div class="col-lg-12">
+                                                        <div class="card card-default card-md mb-4">
+                                                                <h6>Contrato</h6>
+                                                                <div class="card-body py-md-30">
+                                                                        <form id="register_contract"
+                                                                                action="{% url 'contracts:register_contract' %}"
+                                                                                method="POST" class="needs-validation"
+                                                                                novalidate>
+                                                                                {% csrf_token %}
+                                                                                <div class="row">
+                                                                                        <div class="col-md-3">
+                                                                                                <div class="form-group">
+                                                                                                        <label for="a9" class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                N°Contrato
+                                                                                                        </label>
+                                                                                                        <input type="text"
+                                                                                                                class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                id="a9"
+                                                                                                                name="contract_number"
+                                                                                                                placeholder="0001">
+                                                                                                </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-3">
+                                                                                                <div class="form-group form-group-calender">
+                                                                                                        <label for="datepicker8"
+                                                                                                                class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                Fecha de Expedicion
+                                                                                                        </label>
+                                                                                                        <div class="position-relative">
+                                                                                                                <input type="date"
+                                                                                                                        class="form-control  ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                        id="date"
+                                                                                                                        name="expedition_date"
+                                                                                                                        required>
+                                                                                                                <div class="invalid-feedback">
+                                                                                                                        Por favor ingrese una fecha de expedicion valida.
+                                                                                                                        
+                                                                                                                </div>
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </div>
+
+
+                                                                                        <div class="col-md-3">
+                                                                                                <div class="form-group">
+                                                                                                        <label for="plan"
+                                                                                                                class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                Plan Contratado
+                                                                                                        </label>
+                                                                                                        <select class="form-control px-15"
+                                                                                                                name="plan"
+                                                                                                                id="plan">
+                                                                                                                {% for plan in plans %}
+                                                                                                                <option value="{{ plan }}">
+                                                                                                                        {{ plan }}
+                                                                                                                </option>
+                                                                                                                {% endfor %}
+                                                                                                        </select>
+                                                                                                </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-3">
+                                                                                                <div class="form-group">
+                                                                                                        <label for="asesor"
+                                                                                                                class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                Asesor
+                                                                                                        </label>
+                                                                                                        <select class="form-control px-15"
+                                                                                                                name="asesor"
+                                                                                                                id="asesor">
+                                                                                                                {% for asesor in asesores %}
+                                                                                                                <option value="{{ asesor }}">
+                                                                                                                        {{ asesor }}
+                                                                                                                </option>
+                                                                                                                {% endfor %}
+                                                                                                        </select>
+                                                                                                </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-3">
+                                                                                                <div class="form-group">
+                                                                                                        <label for="name" class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                Nombres Contratante	
+                                                                                                        </label>
+                                                                                                        <input type="text"
+                                                                                                                class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                name="first_name"
+                                                                                                                placeholder="Peter"
+                                                                                                                required>
+                                                                                                        <div class="invalid-feedback">
+                                                                                                                Por favor ingrese un nombre valido.
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-3">
+                                                                                                <div class="form-group">
+                                                                                                        <label for="lastname"
+                                                                                                                class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                Apellidos Contratante
+                                                                                                        </label>
+                                                                                                        <input type="text"
+                                                                                                                class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                name="last_name"
+                                                                                                                placeholder="Parker Benjamin"
+                                                                                                                required>
+                                                                                                        <div class="invalid-feedback">
+                                                                                                                Por favor ingrese un apellido valido.
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-3">
+                                                                                                <div class="form-group form-group-calender">
+                                                                                                        <label for="datepicker8"
+                                                                                                                class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                Fecha de Nacimiento
+                                                                                                        </label>
+                                                                                                        <div class="position-relative">
+                                                                                                                <input type="date"
+                                                                                                                        class="form-control  ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                        id="date"
+                                                                                                                        name="birthday"
+                                                                                                                        required>
+                                                                                                                <div class="invalid-feedback">
+                                                                                                                        Por favor ingrese una fecha de nacimiento valida.
+                                                                                                                </div>
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-3">
+                                                                                                <div class="form-group">
+                                                                                                        <label for="a5" class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                Numero de Cedula
+                                                                                                        </label>
+                                                                                                        <input type="text"
+                                                                                                                class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                id="a5"
+                                                                                                                name="identification"
+                                                                                                                placeholder="123456789"
+                                                                                                                required>
+                                                                                                        <div class="invalid-feedback">
+                                                                                                                Por favor ingrese un numero de cedula valido.
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-3">
+                                                                                                <div class="form-group">
+                                                                                                        <label for="a5" class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                Lugar de Expedicion Documento
+                                                                                                        </label>
+                                                                                                        <input type="text"
+                                                                                                                class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                id="a5"
+                                                                                                                name="identification"
+                                                                                                                placeholder="Cucuta"
+                                                                                                                required>
+                                                                                                        <div class="invalid-feedback">
+                                                                                                                Por favor ingrese un lugar de expedicion valido.
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-md-3">
+                                                                                                <div class="form-group">
+                                                                                                        <label for="a6" class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                Numero de Contacto
+                                                                                                        </label>
+                                                                                                        <input type="text"
+                                                                                                                class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                id="a6"
+                                                                                                                name="expedition_place"
+                                                                                                                placeholder="312123123"
+                                                                                                                required>
+                                                                                                        <div class="invalid-feedback">
+                                                                                                                Por favor ingrese un numero de contacto valido.
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                                <div class="form-group">
+                                                                                                        <label for="a7" class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                Direccion de Residencia
+                                                                                                        </label>
+                                                                                                        <input type="text"
+                                                                                                                class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                id="a7"
+                                                                                                                name="address"
+                                                                                                                placeholder="calle 1 avenida 2 #34-56">
+                                                                                                        <div class="invalid-feedback">
+                                                                                                                Por favor ingrese una direccion valida.
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-8">
+                                                                                                <div class="form-group">
+                                                                                                        <label for="a9" class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                Correo Electronico
+                                                                                                        </label>
+                                                                                                        <input type="text"
+                                                                                                                class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                id="a9"
+                                                                                                                name="email"
+                                                                                                                placeholder="username@mail.com"
+                                                                                                                required>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                                <div class="form-group">
+                                                                                                        <label for="a7" class="il-gray fs-14 fw-500 align-center mb-10">
+                                                                                                                Transferido
+                                                                                                        </label>
+                                                                                                        <input type="text"
+                                                                                                                class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                id="a7"
+                                                                                                                name="transfer"
+                                                                                                                placeholder="Los Olivos">
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <div class="container">
+                                                                                                <div class="d-flex justify-content-between m-5">
+                                                                                                                        <h3>Beneficiarios</h3>
+                                                                                                                <input type="button"
+                                                                                                                        class="btn btn-primary"
+                                                                                                                        id="add"
+                                                                                                                        value="Agregar Beneficiario">
+                                                                                                                </input>                                                                                                        
+                                                                                                </div>
+                                                                                                <div class="col-md-12" id="table-container" >
+                                                                                                        <div class="form-group">
+                                                                                                                <table class="table table-bordered">
+                                                                                                                        <thead>
+                                                                                                                                <tr>
+                                                                                                                                        <th scope="col">
+                                                                                                                                                Nombres
+                                                                                                                                        </th>
+                                                                                                                                        <th scope="col">
+                                                                                                                                                Apellidos
+                                                                                                                                        </th>
+                                                                                                                                        <th scope="col">
+                                                                                                                                                Fecha de Nacimiento
+                                                                                                                                        </th>
+                                                                                                                                        <th scope="col">
+                                                                                                                                                Documento de Identidad
+                                                                                                                                        </th>
+                                                                                                                                        <th scope="col">
+                                                                                                                                                Parentesco con el Contratante
+                                                                                                                                        </th>
+                                                                                                                                </tr>
+                                                                                                                        </thead>
+                                                                                                                        <tbody id="dynamicadd">
+                                                                                                                                <form id="add_beneficiary" action="{% url 'contracts:register_contract' %}" method="POST" class="needs-validation"
+                                                                                                                                        novalidate>
+                                                                                                                                        {% csrf_token %}
+                                                                                                                                <tr>
+                                                                                                                                        <td>
+                                                                                                                                                <input type="text"
+                                                                                                                                                        class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                                                        id="a9"
+                                                                                                                                                        name="first_name"
+                                                                                                                                                        placeholder="juan">
+
+                                                                                                                                        </td>
+                                                                                                                                        <td>
+                                                                                                                                                <input type="text"
+                                                                                                                                                        class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                                                        id="a9"
+                                                                                                                                                        name="last_name"
+                                                                                                                                                        placeholder="perez">
+
+                                                                                                                                        </td>
+                                                                                                                                        <td>
+
+                                                                                                                                                <input type="date"
+                                                                                                                                                        class="form-control  ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                                                        id="date"
+                                                                                                                                                        name="expedition_date"
+                                                                                                                                                        required>
+                                                                                                                                        </td>
+                                                                                                                                        <td>
+                                                                                                                                                <input type="text"
+                                                                                                                                                        class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                                                        id="a9"
+                                                                                                                                                        name="identification"
+                                                                                                                                                        placeholder="123456789">
+                                                                                                                                        </td>
+                                                                                                                                        <td>
+                                                                                                                                                <select class="form-control px-15"
+                                                                                                                                                        name="plan"
+                                                                                                                                                        id="exampleFormControlSelect1">
+                                                                                                                                                        {% for kinship in kinships %}
+                                                                                                                                                        <option value="{{ kinship }}">
+                                                                                                                                                                {{ kinship}}
+                                                                                                                                                        </option>
+                                                                                                                                                        {% endfor %}
+                                                                                                                                                </select>
+                                                                                                                                        </td>
+                                                                                                                                        <td>
+                                                                                                                                                <button type="button" id="remove" class="btn btn-primary">
+                                                                                                                                                        Eliminar
+                                                                                                                                                </button>
+                                                                                                                                        </td>
+                                                                                                                                </tr>
+                                                                                                                                </form>
+                                                                                                                        </table>  
+                                                                                                                </div>
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                </div>
+
+                                                                <div class="card-body">
+                                                                        <div id="alert-login"
+                                                                                class="alert alert-danger alert-dismissible fade show"
+                                                                                role="alert" style="display:none">
+                                                                                <div class="alert-content">
+                                                                                        <p></p>
+                                                                                        <button type="button"
+                                                                                                class="btn-close text-capitalize"
+                                                                                                data-bs-dismiss="alert"
+                                                                                                aria-label="Close">
+                                                                                                <img src="{% static 'assets/img/svg/x.svg'%}"
+                                                                                                        alt="x"
+                                                                                                        class="svg"
+                                                                                                        aria-hidden="true">
+                                                                                        </button>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-end gap-3">
+                                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+                                                        <button type="submit" form="register_user" class="btn btn-primary btn-sm">Registrar Contrato</button>
+                                                </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+        let count = 3;
+    $("#add").click(function(){
+        const name = 'exampleFormControlSelect'+ count;
+        count++;
+        var lastRow = ` <tr>
+                                                                                                                                        <td>
+                                                                                                                                                <input type="text"
+                                                                                                                                                        class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                                                        id="a9"
+                                                                                                                                                        name="first_name[]"
+                                                                                                                                                        placeholder="juan">
+
+                                                                                                                                        </td>
+                                                                                                                                        <td>
+                                                                                                                                                <input type="text"
+                                                                                                                                                        class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                                                        id="a9"
+                                                                                                                                                        name="last_name[]"
+                                                                                                                                                        placeholder="perez">
+
+                                                                                                                                        </td>
+                                                                                                                                        <td>
+
+                                                                                                                                                <input type="date"
+                                                                                                                                                        class="form-control  ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                                                        id="date"
+                                                                                                                                                        name="expedition_date[]"
+                                                                                                                                                        required>
+                                                                                                                                        </td>
+                                                                                                                                        <td>
+                                                                                                                                                <input type="text"
+                                                                                                                                                        class="form-control ih-medium ip-light radius-xs b-light px-15"
+                                                                                                                                                        id="a9"
+                                                                                                                                                        name="identification[]"
+                                                                                                                                                        placeholder="123456789">
+                                                                                                                                        </td>
+                                                                                                                                        <td>
+                                                                                                                                                <select class="form-control px-15"
+                                                                                                                                                        name="plan[]"
+                                                                                                                                                        id="${name}">
+                                                                                                                                                        {% for kinship in kinships %}
+                                                                                                                                                        <option
+                                                                                                                                                                value="{{ kinship }}">
+                                                                                                                                                                {{ kinship}}
+                                                                                                                                                        </option>
+                                                                                                                                                        {% endfor %}
+                                                                                                                                                </select>
+                                                                                                                                        </td>
+                                                                                                                                        <td>
+                                                                                                                                                <button type="button"
+                                                                                                                                                        id="remove"
+                                                                                                                                                        class="btn btn-primary">Eliminar</button>
+                                                                                                                                        </td>
+
+                                                                                                                                </tr>`
+        
+        $("#dynamicadd").append(lastRow);
+        $('#'+name).select2();	
+    });
+    $("#dynamicadd").on("click", "#remove", function(){
+        $(this).closest("tr").remove();
+    });
+});
+</script>
+<script>
+        document.getElementById('register_contract').addEventListener("submit", function (e){
+        e.preventDefault();
+        var url = "/contracts/register_contract"
+        var formulario = new FormData(document.getElementById('register_contract'));
+        console.log(formulario);
+
+        fetch(url, {
+                method: 'POST',
+                body: formulario,
+        })
+        .then(response => response.json())
+        .then(data => {
+                 if (data.success) {
+                        window.location.href = data.url;
+                 }
+                        else {
+                                var alerta = document.getElementById('alert-login');
+                                alerta.style.display = 'block';
+                                alerta.querySelector('p').innerHTML = data.message;
+                        }
+        })
+        })
+</script>
+<script>
+        $(document).ready(function(){
+                $("#add_beneficiary").submit(function(event){	
+                        
+        });
+</script>
+{%endblock content_body%}

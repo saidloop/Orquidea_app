@@ -7,4 +7,5 @@ app_name = 'contracts'
 
 urlpatterns = [
     path('contracts/', ListContracts.as_view(), name='list_contracts'),
+    path('contracts/register_contract/', RegisterContractView.as_view(), name='register_contract'),
 ]

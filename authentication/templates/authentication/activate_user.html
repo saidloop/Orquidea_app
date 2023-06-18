@@ -2,21 +2,17 @@
 <div class="modal-dialog modal-md" role="document">
   <div class="modal-content modal-bg-white">
     <div class="modal-header">
-      <h6 class="modal-title"> Activar {{ user.username }}</h6>
+      <h6 class="modal-title"> Activar {{ profile.user.username }}</h6>
       <button
         type="button"
         class="close"
         data-bs-dismiss="modal"
-        aria-label="Close"
-      >
-        <img src="{% static 'assets/img/svg/x.svg' %}" alt="x" class="svg" />
+        aria-label="Close">
+        <img src="{% static 'assets/img/svg/x.svg' %}" alt="x" class="svg"/>
       </button>
     </div>
     <div class="modal-body">
-      <form
-        method="POST"
-        action="{% url 'authentication:activate_user' profile_id=user.id %}"
-      >
+      <form method="POST" action="{% url 'authentication:activate_user' profile_id=profile.id %}">
         {% csrf_token %}
         <div class="modal-body">
           <p>¿Estás seguro de que deseas activar este usuario?</p>
@@ -38,5 +34,4 @@
             $("#activate")
         });
     });
-
 </script>

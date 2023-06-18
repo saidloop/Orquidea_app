@@ -21,6 +21,7 @@
                                                                                 <div class="card-body">
                                                                                         <div class="d-flex flex-wrap justify-content-sm-start justify-content-center">
                                                                                                 <button type="button"
+                                                                                                        onclick="open_modal_register('{% url 'contracts:register_contract' %}')"
                                                                                                         class="btn btn-primary btn-sm"
                                                                                                         data-bs-toggle="modal"
                                                                                                         data-bs-target="#modal-basic">
@@ -44,21 +45,21 @@
                                                                                 <tr class="userDatatable-header">
                                                                                         <th>
                                                                                                 <span
-                                                                                                        class="userDatatable-title">id</span>
+                                                                                                        class="userDatatable-title">Numero de Contrato</span>
                                                                                         </th>
                                                                                         <th>
                                                                                                 <span
-                                                                                                        class="userDatatable-title">user</span>
+                                                                                                        class="userDatatable-title">Contratante</span>
                                                                                         </th>
                                                                                         <th>
                                                                                                 <span
-                                                                                                        class="userDatatable-title">emaill</span>
+                                                                                                        class="userDatatable-title">Asesor</span>
                                                                                         </th>
 
                                                                                         <th data-type="html"
                                                                                                 data-name='position'>
                                                                                                 <span
-                                                                                                        class="userDatatable-title">position</span>
+                                                                                                        class="userDatatable-title">Fecha Expedicion</span>
                                                                                         </th>
                                                                                         <th>
                                                                                                 <span
@@ -77,12 +78,12 @@
                                                                                 </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                                
+                                                                                {% for profile in profiles %}
                                                                                 <tr>
                                                                                         <td>
                                                                                                 <div
                                                                                                         class="userDatatable-content">
-                                                                                                        
+                                                                                                        {{profile.user.id}}
                                                                                                 </div>
                                                                                         </td>
 
@@ -91,13 +92,14 @@
                                                                                                         <div
                                                                                                                 class="userDatatable-inline-title">
                                                                                                         </div>
-                                                                                                        <h6></h6>
+                                                                                                        <h6>{{ profile.user}}</h6>
                                                                                                 </div>
                                                                                         </td>
 
                                                                                         <td>
                                                                                                 <div
                                                                                                         class="userDatatable-content">
+                                                                                                        {{ profile.user.email}}
                                                                                                 </div>
                                                                                                 
                                                                                         </td>
@@ -105,12 +107,13 @@
                                                                                         <td>
                                                                                                 <div
                                                                                                         class="userDatatable-content">
+                                                                                                        {{ profile.role}}
                                                                                                 </div>
                                                                                         </td>
                                                                                         <td>
                                                                                                 <div
                                                                                                         class="userDatatable-content">
-                                                                                                        
+                                                                                                        {{ profile.user.date_joined|date:"d-m-Y"}}
                                                                                                 </div>
 
                                                                                         </td>
@@ -118,16 +121,16 @@
                                                                                         <td>
                                                                                                 <div
                                                                                                         class="userDatatable-content d-inline-block">
-                                                                                                       
+                                                                                                        {% if profile.user.is_active %}
                                                                                                         <span
                                                                                                                 class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
 
-                                                                                                        
+                                                                                                        {% else %}
                                                                                                         <span
                                                                                                                 class="bg-opacity-danger  color-danger rounded-pill userDatatable-content-status active">
                                                                                                                 deactivate
                                                                                                         </span>
-                                                                                                        
+                                                                                                        {% endif %}
                                                                                                         </span>
                                                                                                 </div>
 
@@ -144,6 +147,7 @@
                                                                                                         <li>
                                                                                                                 <a href="#"
                                                                                                                         id="edit-user-{{ profile.id }}"
+                                                                                                                        onclick="open_modal_edit('{% url 'authentication:update_user' profile.id %}')" 
                                                                                                                         class="edit"
                                                                                                                         data-bs-toggle="modal"
                                                                                                                         data-bs-target="#modal-edit-{{ profile.id }}">
@@ -151,10 +155,11 @@
                                                                                                                                 class="fa fa-user-pen"></i>
                                                                                                                 </a>
                                                                                                         </li>
-                                                                                                        
+                                                                                                        {% if profile.user.is_active %}
                                                                                                         <li>
                                                                                                                 <a href="#"
                                                                                                                 id="deactivate-user-{{ profile.id }}"
+                                                                                                                onclick="open_modal_deactivate('{% url 'authentication:deactivate_user' profile.id %}')" 
                                                                                                                 class="remove"
                                                                                                                 data-bs-toggle="modal"
                                                                                                                 data-bs-target="#modal-deactivate-{{ profile.id }}">
@@ -162,10 +167,11 @@
                                                                                                                                 class="fa-solid fa-trash"></i>
                                                                                                                 </a>
                                                                                                         </li>
-                                                                                                        
+                                                                                                        {% else %}
                                                                                                         <li>
                                                                                                                 <a href="#"
                                                                                                                 id="activate-user-{{ profile.id }}"
+                                                                                                                onclick="open_modal_activate('{% url 'authentication:activate_user' profile.id %}')" 
                                                                                                                 class="view"
                                                                                                                 data-bs-toggle="modal"
                                                                                                                 data-bs-target="#modal-activate-{{ profile.id }}">
@@ -173,7 +179,7 @@
                                                                                                                                 class="fa-solid fa-rotate-right"></i>
                                                                                                                 </a>
                                                                                                         </li>
-                                                                                                        
+                                                                                                        {% endif %}
                                                                                                 </ul>
                                                                                         </td>
 
@@ -181,7 +187,7 @@
 
                                                                                 </tr>
 
-                                                                                
+                                                                                {% endfor %}
                                                                         </tbody>
 
 
@@ -195,8 +201,52 @@
         </div>
 </div>
 
+<div class="modal fade show" id="register" role="dialog">
+</div>
 
+<div class="modal fade show" id="modal-edit-{{ profile.id }}" role="dialog">
+</div>
+
+<div class="modal fade show" id="modal-deactivate-{{ profile.id }}" role="dialog">
+</div>
+
+<div class="modal fade show" id="modal-activate-{{ profile.id }}" role="dialog">
+</div>
 
 
 {% endblock content_body %}
 
+{% block extrajs %}
+
+<script>
+        var $ = jQuery.noConflict();
+        function open_modal_register(url) {
+                $('#register').load(url, function () {
+                        $(this).modal('show');
+                });
+        }
+
+
+        function open_modal_edit(url) {
+                $('#modal-edit-{{ profile.id }}').load(url, function () {
+                        $(this).modal('show');
+                });
+        }
+
+        function open_modal_deactivate(url) {
+                $('#modal-deactivate-{{ profile.id }}').load(url, function () {
+                        $(this).modal('show');
+                });
+        }
+
+        function open_modal_activate(url) {
+                $('#modal-activate-{{ profile.id }}').load(url, function () {
+                        $(this).modal('show');
+                });
+        }
+
+
+
+</script>
+
+{% endblock extrajs %}

@@ -86,9 +86,10 @@ class UpdateUserView(LoginRequiredMixin, UpdateView):
     redirect_field_name = 'redirect_to'
 
     def get_object(self, queryset=None):
-        user_id = self.kwargs.get('user_id')  # Obtener el ID del usuario de la URL
-        user = get_object_or_404(get_user_model(), id=user_id)  # Obtener la instancia del usuario o mostrar 404 si no existe
-        return user.profile
+        profile_id = self.kwargs.get('profile_id')  
+        profile = get_object_or_404(Profile, id=profile_id)
+        print(profile_id)
+        return profile
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -97,8 +98,7 @@ class UpdateUserView(LoginRequiredMixin, UpdateView):
         return context
 
     def form_valid(self, form):
-        user_id = self.kwargs.get('user_id')  # Obtener el ID del usuario de la URL
-        user = get_object_or_404(get_user_model(), id=user_id)  # Obtener la instancia del usuario o mostrar 404 si no existe
+        user = self.object.user 
         user_form = self.second_form_class(self.request.POST, instance=user)
         if user_form.is_valid():
             user = user_form.save()
@@ -121,20 +121,18 @@ class DeactivateUserView(View):
 
     def post(self, request, *args, **kwargs):
         print(kwargs)
-        profile = kwargs.get('profile_id')
+        profile= kwargs.get('profile_id')
         profile = get_object_or_404(Profile, id=profile)
-        user = profile.user
-        user.is_active = False
-        user.save()
+        profile.user.is_active = False
+        profile.user.save()
         messages.success(self.request, 'Usuario desactivado correctamente')
         return redirect(self.success_url)
 
     def get(self, request, *args, **kwargs):
         profile = kwargs.get('profile_id')
         profile = get_object_or_404(Profile, id=profile)
-        user = profile.user
         context = {
-            'user': user
+            'profile': profile
         }
         return render(request, self.template_name, context)
 
@@ -146,18 +144,16 @@ class ActivateUserView(View):
         print(kwargs)
         profile = kwargs.get('profile_id')
         profile = get_object_or_404(Profile, id=profile)
-        user = profile.user
-        user.is_active = True
-        user.save()
+        profile.user.is_active = True
+        profile.user.save()
         messages.success(self.request, 'Usuario activado correctamente')
         return redirect(self.success_url)
 
     def get(self, request, *args, **kwargs):
         profile = kwargs.get('profile_id')
         profile = get_object_or_404(Profile, id=profile)
-        user = profile.user
         context = {
-            'user': user
+            'profile': profile
         }
         return render(request, self.template_name, context)
 
